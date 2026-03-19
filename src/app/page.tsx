@@ -111,7 +111,16 @@ export default function LandingPage() {
           </p>
           
           <div className="aspect-[16/9] w-full max-w-4xl mx-auto rounded-3xl overflow-hidden relative shadow-2xl flex items-center justify-center p-2 bg-gradient-to-tr from-white/5 to-white/10 ring-1 ring-white/10">
-             <img src="/tri_neo_mockup_caribbean_1773948768809.png" alt="TRI-NEO App Interface" className="w-full h-full object-cover rounded-2xl" />
+             <video 
+               autoPlay 
+               loop 
+               muted 
+               playsInline 
+               className="w-full h-full object-cover rounded-2xl"
+               poster="/interfaz app/interfaz app-Cover.jpg"
+             >
+               <source src="/interfaz app/interfaz app.mov" type="video/quicktime" />
+             </video>
           </div>
         </div>
       </section>
