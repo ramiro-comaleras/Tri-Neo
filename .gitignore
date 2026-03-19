@@ -66,3 +66,6 @@ Thumbs.db
 # Supabase
 supabase/.branches
 supabase/.temp
+
+# Large videos
+*.mov
