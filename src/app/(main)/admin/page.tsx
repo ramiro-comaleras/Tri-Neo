@@ -6,17 +6,27 @@ import { GlassCard } from '@/shared/components/glass-card'
 import { Button } from '@/shared/components/ui-button'
 import { Search, User, Check, X, Shield, History, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
-import { getUsers, toggleLifetimeAccess } from '@/features/admin/actions'
+import { getUsers, toggleLifetimeAccess, getPreAuthorizedEmails, preAuthorizeEmail, removePreAuthorizedEmail } from '@/features/admin/actions'
+import { Plus, Trash2 } from 'lucide-react'
 
 export default function AdminPage() {
     const [search, setSearch] = useState('')
     const [users, setUsers] = useState<any[]>([])
+    const [preAuthEmails, setPreAuthEmails] = useState<any[]>([])
+    const [newPreAuthEmail, setNewPreAuthEmail] = useState('')
     const [loading, setLoading] = useState(false)
     const [actionLoading, setActionLoading] = useState<string | null>(null)
+    const [preAuthLoading, setPreAuthLoading] = useState(false)
 
     useEffect(() => {
         handleSearch()
+        loadPreAuthEmails()
     }, [])
+
+    const loadPreAuthEmails = async () => {
+        const data = await getPreAuthorizedEmails()
+        setPreAuthEmails(data)
+    }
 
     const handleSearch = async (e?: React.FormEvent) => {
         if (e) e.preventDefault()
@@ -28,6 +38,31 @@ export default function AdminPage() {
             console.error('Search error:', error)
         } finally {
             setLoading(false)
+        }
+    }
+
+    const handlePreAuthorize = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (!newPreAuthEmail) return
+        setPreAuthLoading(true)
+        try {
+            await preAuthorizeEmail(newPreAuthEmail)
+            setNewPreAuthEmail('')
+            await loadPreAuthEmails()
+        } catch (error) {
+            alert('Error al pre-autorizar email')
+        } finally {
+            setPreAuthLoading(false)
+        }
+    }
+
+    const handleRemovePreAuth = async (email: string) => {
+        if (!confirm('¿Eliminar esta pre-autorización?')) return
+        try {
+            await removePreAuthorizedEmail(email)
+            await loadPreAuthEmails()
+        } catch (error) {
+            alert('Error al eliminar')
         }
     }
 
@@ -59,89 +94,143 @@ export default function AdminPage() {
                             <span className="text-gold text-xs font-bold uppercase tracking-widest px-2 py-0.5 bg-gold/10 border border-gold/20 rounded-md">Panel de Control</span>
                         </div>
                         <h1 className="font-headings text-4xl font-bold text-white tracking-tight">Gestión de Usuarios</h1>
-                        <p className="font-sans text-white/60 mt-1">Activa accesos vitalicios manualmente después de pagos por MP.</p>
+                        <p className="font-sans text-white/60 mt-1">Activa accesos vitalicios manualmente o pre-autoriza correos.</p>
                     </div>
                 </header>
 
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                    {/* Search Section */}
-                    <div className="lg:col-span-4 mb-6">
-                        <GlassCard className="p-1">
-                            <form onSubmit={handleSearch} className="flex items-center gap-2 p-1">
-                                <div className="relative flex-1">
-                                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/40" size={20} />
-                                    <input
-                                        type="text"
-                                        placeholder="Buscar por email..."
-                                        className="w-full bg-white/5 border-none focus:ring-1 focus:ring-gold/50 rounded-xl py-3 pl-12 pr-4 text-white placeholder:text-white/30 font-sans"
-                                        value={search}
-                                        onChange={(e) => setSearch(e.target.value)}
-                                    />
-                                </div>
-                                <Button variant="primary" type="submit" disabled={loading} className="px-8 rounded-xl">
-                                    {loading ? 'Buscando...' : 'Buscar'}
-                                </Button>
-                            </form>
-                        </GlassCard>
+                <div className="grid grid-cols-1 gap-8">
+                    {/* Pre-Authorization Section */}
+                    <div className="animate-slide-up">
+                        <h2 className="text-white font-headings text-xl mb-4 flex items-center gap-2">
+                            <Plus size={20} className="text-gold" /> Pre-autorizar emails (Ventas Pendientes)
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <GlassCard className="p-4 border-gold/20">
+                                <form onSubmit={handlePreAuthorize} className="space-y-4">
+                                    <p className="text-xs text-white/50 mb-4">Ingresa el email del cliente que ya pagó. Cuando se registre usando este mismo email, tendrá acceso vitalicio automáticamente.</p>
+                                    <div className="flex gap-2">
+                                        <input
+                                            type="email"
+                                            placeholder="cliente@email.com"
+                                            className="flex-1 bg-white/5 border border-white/10 focus:border-gold/50 rounded-xl px-4 py-2 text-white text-sm"
+                                            value={newPreAuthEmail}
+                                            onChange={(e) => setNewPreAuthEmail(e.target.value)}
+                                            required
+                                        />
+                                        <Button variant="primary" type="submit" disabled={preAuthLoading} className="px-6 rounded-xl text-sm h-10">
+                                            {preAuthLoading ? '...' : 'Autorizar'}
+                                        </Button>
+                                    </div>
+                                </form>
+                            </GlassCard>
+
+                            <GlassCard className="p-4 max-h-[200px] overflow-y-auto">
+                                <h3 className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-3">Emails pendientes de registro</h3>
+                                {preAuthEmails.length === 0 ? (
+                                    <p className="text-xs text-white/20 italic">No hay emails pendientes.</p>
+                                ) : (
+                                    <div className="space-y-2">
+                                        {preAuthEmails.map((auth) => (
+                                            <div key={auth.email} className="flex items-center justify-between bg-white/5 px-3 py-2 rounded-lg border border-white/5">
+                                                <span className="text-sm text-white/70">{auth.email}</span>
+                                                <button onClick={() => handleRemovePreAuth(auth.email)} className="text-white/20 hover:text-red-400 transition-colors">
+                                                    <Trash2 size={14} />
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </GlassCard>
+                        </div>
                     </div>
 
-                    {/* Users List */}
-                    <div className="lg:col-span-4 space-y-4">
-                        {users.length === 0 ? (
-                            <div className="text-center py-20 bg-white/5 rounded-3xl border border-white/10 text-white/40">
-                                <User className="mx-auto mb-4 opacity-20" size={48} />
-                                <p>No se encontraron usuarios</p>
-                            </div>
-                        ) : (
-                            users.map((user, idx) => (
-                                <GlassCard key={user.id} className="animate-slide-up group" style={{ animationDelay: `${idx * 50}ms` }}>
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-2">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-2xl bg-petrol/50 border border-white/10 flex items-center justify-center text-white/80 font-bold overflow-hidden relative group-hover:border-gold/30 transition-colors">
-                                                {user.email[0].toUpperCase()}
-                                                {user.is_admin && (
-                                                    <div className="absolute -bottom-1 -right-1 bg-gold rounded-full p-0.5 border border-petrol">
-                                                        <Shield size={10} className="text-petrol" fill="currentColor" />
+                    <div className="h-px bg-white/10 w-full" />
+
+                    {/* Users Management */}
+                    <div className="animate-slide-up" style={{ animationDelay: '100ms' }}>
+                        <h2 className="text-white font-headings text-xl mb-4 flex items-center gap-2">
+                            <User size={20} className="text-gold" /> Usuarios Registrados
+                        </h2>
+                        {/* Search Section */}
+                        <div className="mb-6">
+                            <GlassCard className="p-1">
+                                <form onSubmit={handleSearch} className="flex items-center gap-2 p-1">
+                                    <div className="relative flex-1">
+                                        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/40" size={20} />
+                                        <input
+                                            type="text"
+                                            placeholder="Buscar por email..."
+                                            className="w-full bg-white/5 border-none focus:ring-1 focus:ring-gold/50 rounded-xl py-3 pl-12 pr-4 text-white placeholder:text-white/30 font-sans"
+                                            value={search}
+                                            onChange={(e) => setSearch(e.target.value)}
+                                        />
+                                    </div>
+                                    <Button variant="primary" type="submit" disabled={loading} className="px-8 rounded-xl">
+                                        {loading ? 'Buscando...' : 'Buscar'}
+                                    </Button>
+                                </form>
+                            </GlassCard>
+                        </div>
+
+                        {/* Users List */}
+                        <div className="space-y-4">
+                            {users.length === 0 ? (
+                                <div className="text-center py-20 bg-white/5 rounded-3xl border border-white/10 text-white/40">
+                                    <User className="mx-auto mb-4 opacity-20" size={48} />
+                                    <p>No se encontraron usuarios</p>
+                                </div>
+                            ) : (
+                                users.map((user, idx) => (
+                                    <GlassCard key={user.id} className="animate-slide-up group" style={{ animationDelay: `${idx * 50}ms` }}>
+                                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-2">
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-12 h-12 rounded-2xl bg-petrol/50 border border-white/10 flex items-center justify-center text-white/80 font-bold overflow-hidden relative group-hover:border-gold/30 transition-colors">
+                                                    {user.email[0].toUpperCase()}
+                                                    {user.is_admin && (
+                                                        <div className="absolute -bottom-1 -right-1 bg-gold rounded-full p-0.5 border border-petrol">
+                                                            <Shield size={10} className="text-petrol" fill="currentColor" />
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <h3 className="font-headings font-medium text-white truncate max-w-[200px] md:max-w-none">
+                                                        {user.email}
+                                                    </h3>
+                                                    <div className="flex flex-wrap gap-2 mt-1">
+                                                        <span className={`text-[10px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded-full ${user.onboarding_completed ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-white/5 text-white/30 border border-white/10'}`}>
+                                                            {user.onboarding_completed ? 'Onboarding OK' : 'Pendiente'}
+                                                        </span>
+                                                        <span className="text-[10px] text-white/30 font-sans flex items-center gap-1">
+                                                            <History size={10} /> {new Date(user.created_at).toLocaleDateString()}
+                                                        </span>
                                                     </div>
-                                                )}
-                                            </div>
-                                            <div>
-                                                <h3 className="font-headings font-medium text-white truncate max-w-[200px] md:max-w-none">
-                                                    {user.email}
-                                                </h3>
-                                                <div className="flex flex-wrap gap-2 mt-1">
-                                                    <span className={`text-[10px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded-full ${user.onboarding_completed ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-white/5 text-white/30 border border-white/10'}`}>
-                                                        {user.onboarding_completed ? 'Onboarding OK' : 'Pendiente'}
-                                                    </span>
-                                                    <span className="text-[10px] text-white/30 font-sans flex items-center gap-1">
-                                                        <History size={10} /> {new Date(user.created_at).toLocaleDateString()}
-                                                    </span>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div className="flex items-center gap-3">
-                                            <div className={`px-4 py-2 rounded-2xl border transition-all duration-300 flex items-center gap-2 ${user.lifetime_access ? 'bg-gold/10 border-gold/40 text-gold shadow-[0_0_15px_rgba(198,169,95,0.1)]' : 'bg-white/5 border-white/10 text-white/30'}`}>
-                                                {user.lifetime_access ? <Check size={16} /> : <X size={16} />}
-                                                <span className="text-sm font-bold uppercase tracking-widest">{user.lifetime_access ? 'Vitalicio' : 'Limitado'}</span>
+                                            <div className="flex items-center gap-3">
+                                                <div className={`px-4 py-2 rounded-2xl border transition-all duration-300 flex items-center gap-2 ${user.lifetime_access ? 'bg-gold/10 border-gold/40 text-gold shadow-[0_0_15px_rgba(198,169,95,0.1)]' : 'bg-white/5 border-white/10 text-white/30'}`}>
+                                                    {user.lifetime_access ? <Check size={16} /> : <X size={16} />}
+                                                    <span className="text-sm font-bold uppercase tracking-widest">{user.lifetime_access ? 'Vitalicio' : 'Limitado'}</span>
+                                                </div>
+
+                                                <Button
+                                                    variant={user.lifetime_access ? 'ghost' : 'primary'}
+                                                    className={`rounded-2xl h-11 px-6 ${user.lifetime_access ? 'bg-white/5 hover:bg-red-500/10 hover:text-red-400' : 'shadow-lg shadow-gold/20'}`}
+                                                    onClick={() => handleToggleAccess(user)}
+                                                    disabled={actionLoading === user.id}
+                                                >
+                                                    {actionLoading === user.id ? '...' : (user.lifetime_access ? 'Quitar Acceso' : 'Dar Acceso')}
+                                                </Button>
                                             </div>
-
-                                            <Button
-                                                variant={user.lifetime_access ? 'ghost' : 'primary'}
-                                                className={`rounded-2xl h-11 px-6 ${user.lifetime_access ? 'bg-white/5 hover:bg-red-500/10 hover:text-red-400' : 'shadow-lg shadow-gold/20'}`}
-                                                onClick={() => handleToggleAccess(user)}
-                                                disabled={actionLoading === user.id}
-                                            >
-                                                {actionLoading === user.id ? '...' : (user.lifetime_access ? 'Quitar Acceso' : 'Dar Acceso')}
-                                            </Button>
                                         </div>
-                                    </div>
-                                </GlassCard>
-                            ))
-                        )}
+                                    </GlassCard>
+                                ))
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
         </MeshBackground>
     )
 }
+

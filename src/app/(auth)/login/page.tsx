@@ -3,7 +3,7 @@
 import { MeshBackground } from '@/shared/components/mesh-background'
 import { GlassCard } from '@/shared/components/glass-card'
 import { Button } from '@/shared/components/ui-button'
-import { signInWithMagicLink, signInWithPassword, signUpWithPassword } from './actions'
+import { signInWithPassword, signUpWithPassword } from './actions'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Suspense, useState } from 'react'
@@ -13,7 +13,6 @@ function LoginForm() {
   const message = searchParams.get('message')
   const initialType = searchParams.get('type') // e.g. 'register'
 
-  const [authMode, setAuthMode] = useState<'magiclink' | 'password'>('magiclink')
   const [isLogin, setIsLogin] = useState(initialType !== 'register')
 
   return (
@@ -33,30 +32,10 @@ function LoginForm() {
         <GlassCard>
           <div className="text-center mb-8">
             <h1 className="font-display text-2xl font-bold text-white mb-2">Acceso a tu sistema</h1>
-            <p className="font-sans text-white/70">Selecciona tu método de ingreso.</p>
+            <p className="font-sans text-white/70">Ingresa tus datos para continuar.</p>
           </div>
 
-          {/* Tabs */}
-          <div className="flex bg-white/5 p-1 rounded-xl mb-6 relative">
-            <button
-              type="button"
-              onClick={() => setAuthMode('magiclink')}
-              className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${authMode === 'magiclink' ? 'bg-white/10 text-white shadow' : 'text-white/40 hover:text-white/60'
-                }`}
-            >
-              Envío de Link
-            </button>
-            <button
-              type="button"
-              onClick={() => setAuthMode('password')}
-              className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${authMode === 'password' ? 'bg-white/10 text-white shadow' : 'text-white/40 hover:text-white/60'
-                }`}
-            >
-              Ya tengo clave
-            </button>
-          </div>
-
-          <form action={authMode === 'magiclink' ? signInWithMagicLink : (isLogin ? signInWithPassword : signUpWithPassword)} className="flex flex-col gap-6">
+          <form action={isLogin ? signInWithPassword : signUpWithPassword} className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
               <label htmlFor="email" className="font-sans text-sm text-white/80 font-medium ml-1">
                 Email
@@ -71,21 +50,19 @@ function LoginForm() {
               />
             </div>
 
-            {authMode === 'password' && (
-              <div className="flex flex-col gap-2 animate-fade-in">
-                <label htmlFor="password" className="font-sans text-sm text-white/80 font-medium ml-1">
-                  Contraseña
-                </label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  placeholder="Tu clave secreta"
-                  required
-                  className="input-glass"
-                />
-              </div>
-            )}
+            <div className="flex flex-col gap-2 animate-fade-in">
+              <label htmlFor="password" className="font-sans text-sm text-white/80 font-medium ml-1">
+                Contraseña
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Tu clave secreta"
+                required
+                className="input-glass"
+              />
+            </div>
 
             {message && (
               <div className="p-4 bg-white/10 rounded-xl border border-white/20 text-center animate-shake">
@@ -93,18 +70,16 @@ function LoginForm() {
               </div>
             )}
 
-            <Button type="submit" variant="primary" className="w-full mt-2">
-              {authMode === 'magiclink' ? 'Enviar link de acceso' : (isLogin ? 'Ingresar a mi portal' : 'Crear mi contraseña')}
+            <Button type="submit" variant="primary" className="w-full mt-2 shadow-xl shadow-petrol/20">
+              {isLogin ? 'Ingresar a mi portal' : 'Solicitar acceso'}
             </Button>
           </form>
 
-          {authMode === 'password' && (
-            <div className="mt-6 text-center text-sm text-white/60">
-              <button type="button" onClick={() => setIsLogin(!isLogin)} className="text-gold hover:underline">
-                {isLogin ? "¿No tenés clave todavía? Creadla aquí." : "Ya tengo clave. Iniciar sesión."}
-              </button>
-            </div>
-          )}
+          <div className="mt-6 text-center text-sm text-white/60">
+            <button type="button" onClick={() => setIsLogin(!isLogin)} className="text-gold hover:underline transition-all">
+              {isLogin ? "¿Primera vez? Solicita tu acceso aquí." : "¿Ya tienes cuenta? Ingresar."}
+            </button>
+          </div>
 
           <div className="mt-8 text-center text-sm text-white/60 border-t border-white/5 pt-6">
             <p>¿Compraste y no recibiste acceso?</p>

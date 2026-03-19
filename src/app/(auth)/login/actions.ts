@@ -16,26 +16,7 @@ function getSiteUrl() {
     return 'http://localhost:3000';
 }
 
-export async function signInWithMagicLink(formData: FormData) {
-    const email = formData.get('email') as string
-    const supabase = await createClient()
 
-    const siteUrl = getSiteUrl()
-
-    const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-            // This is the path the user will be redirected to after clicking the link in the email
-            emailRedirectTo: `${siteUrl}/auth/confirm`,
-        },
-    })
-
-    if (error) {
-        return redirect('/login?message=No se pudo enviar el enlace. Intenta nuevamente.')
-    }
-
-    return redirect('/login?message=Revisa tu correo para el enlace de acceso.')
-}
 
 export async function signInWithPassword(formData: FormData) {
     const email = formData.get('email') as string

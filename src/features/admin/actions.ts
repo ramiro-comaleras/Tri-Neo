@@ -60,3 +60,63 @@ export async function toggleLifetimeAccess(userId: string, currentStatus: boolea
 
     return { success: true }
 }
+
+export async function getPreAuthorizedEmails() {
+    const supabase = await createClient()
+    const { data, error } = await supabase
+        .from('authorized_emails')
+        .select('*')
+        .order('created_at', { ascending: false })
+
+    if (error) {
+        console.error('Error fetching authorized emails:', error)
+        return []
+    }
+    return data || []
+}
+
+export async function preAuthorizeEmail(email: string) {
+    const supabase = await createClient()
+
+    // Auth check
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) throw new Error('Unauthorized')
+    const { data: adminUser } = await supabase.from('users').select('is_admin').eq('id', user.id).single()
+    if (!adminUser?.is_admin) throw new Error('Forbidden')
+
+    const { error } = await supabase
+        .from('authorized_emails')
+        .insert({ email })
+
+    if (error) {
+        console.error('Error pre-authorizing email:', error)
+        throw new Error('Could not pre-authorize email')
+    }
+
+    revalidatePath('/admin')
+    return { success: true }
+}
+
+export async function removePreAuthorizedEmail(email: string) {
+    const supabase = await createClient()
+
+    // Auth check
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) throw new Error('Unauthorized')
+    const { data: adminUser } = await supabase.from('users').select('is_admin').eq('id', user.id).single()
+    if (!adminUser?.is_admin) throw new Error('Forbidden')
+
+    const { error } = await supabase
+        .from('authorized_emails')
+        .delete()
+        .eq('email', email)
+
+    if (error) {
+        console.error('Error removing authorized email:', error)
+        throw new Error('Could not remove authorizaion')
+    }
+
+    revalidatePath('/admin')
+    return { success: true }
+}
+
