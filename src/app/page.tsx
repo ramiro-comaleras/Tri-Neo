@@ -192,7 +192,7 @@ export default function LandingPage() {
         <div className="container-narrow">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="w-full md:w-5/12 aspect-[3/4] rounded-2xl overflow-hidden bg-black/5">
-              <img src="/vision_board_new.jpg" alt="Ramiro en Bocas del Toro" className="w-full h-full object-cover" />
+              <img src="/historia.jpeg" alt="Ramiro - Fundador de TRI-NEO" className="w-full h-full object-cover" />
             </div>
             <div className="w-full md:w-7/12">
               <h2 className="text-3xl font-serif mb-6">De la saturación a la claridad</h2>
