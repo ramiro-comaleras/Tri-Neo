@@ -13,6 +13,7 @@ function LoginForm() {
   const message = searchParams.get('message')
   const initialType = searchParams.get('type') // e.g. 'register'
 
+  const initialEmail = searchParams.get('email') || ''
   const [isLogin, setIsLogin] = useState(initialType !== 'register')
 
   return (
@@ -31,8 +32,12 @@ function LoginForm() {
 
         <GlassCard>
           <div className="text-center mb-8">
-            <h1 className="font-display text-2xl font-bold text-white mb-2">Acceso a tu sistema</h1>
-            <p className="font-sans text-white/70">Ingresa tus datos para continuar.</p>
+            <h1 className="font-display text-2xl font-bold text-white mb-2">
+              {isLogin ? 'Acceso a tu portal' : 'Bienvenido a TRI-NEO'}
+            </h1>
+            <p className="font-sans text-white/70">
+              {isLogin ? 'Ingresa tus datos para continuar.' : 'Crea tu clave para comenzar tu proceso.'}
+            </p>
           </div>
 
           <form action={isLogin ? signInWithPassword : signUpWithPassword} className="flex flex-col gap-6">
@@ -45,6 +50,7 @@ function LoginForm() {
                 name="email"
                 type="email"
                 placeholder="tu@email.com"
+                defaultValue={initialEmail}
                 required
                 className="input-glass"
               />
@@ -52,14 +58,15 @@ function LoginForm() {
 
             <div className="flex flex-col gap-2 animate-fade-in">
               <label htmlFor="password" className="font-sans text-sm text-white/80 font-medium ml-1">
-                Contraseña
+                {isLogin ? 'Contraseña' : 'Crea tu Contraseña'}
               </label>
               <input
                 id="password"
                 name="password"
                 type="password"
-                placeholder="Tu clave secreta"
+                placeholder={isLogin ? "Tu clave secreta" : "Mínimo 6 caracteres"}
                 required
+                minLength={6}
                 className="input-glass"
               />
             </div>
@@ -71,13 +78,13 @@ function LoginForm() {
             )}
 
             <Button type="submit" variant="primary" className="w-full mt-2 shadow-xl shadow-petrol/20">
-              {isLogin ? 'Ingresar a mi portal' : 'Solicitar acceso'}
+              {isLogin ? 'Ingresar a mi portal' : 'Crear mi acceso'}
             </Button>
           </form>
 
           <div className="mt-6 flex flex-col items-center gap-4 text-sm text-white/60">
             <button type="button" onClick={() => setIsLogin(!isLogin)} className="text-gold hover:underline transition-all font-medium">
-              {isLogin ? "¿Primera vez? Solicita tu acceso aquí." : "¿Ya tienes cuenta? Ingresar."}
+              {isLogin ? "¿Primera vez? Crea tu acceso aquí." : "¿Ya tienes cuenta? Ingresar."}
             </button>
             {isLogin && (
               <Link href="/forgot-password" title="Recuperar acceso" className="text-white/30 hover:text-white/60 transition-colors">
