@@ -6,7 +6,13 @@ export async function GET(request: Request) {
     const url = new URL(request.url);
     const { searchParams, origin } = url;
 
-    const next = searchParams.get("next") ?? "/home";
+    const nextParam = searchParams.get("next") || searchParams.get("redirect_to") || "/home";
+    
+    // Ensure we don't prepend origin if it's already an absolute URL (e.g. from siteUrl config)
+    const getRedirectUrl = (path: string) => {
+        if (path.startsWith('http')) return path;
+        return `${origin}${path.startsWith('/') ? '' : '/'}${path}`;
+    };
 
     // PKCE flow (recommended): /auth/confirm?code=...
     const code = searchParams.get("code");
@@ -20,7 +26,7 @@ export async function GET(request: Request) {
     // 1) PKCE
     if (code) {
         const { error } = await supabase.auth.exchangeCodeForSession(code);
-        if (!error) return NextResponse.redirect(`${origin}${next}`);
+        if (!error) return NextResponse.redirect(getRedirectUrl(nextParam));
 
         return NextResponse.redirect(
             `${origin}/login?message=Could%20not%20verify%20the%20magic%20link`
@@ -30,7 +36,7 @@ export async function GET(request: Request) {
     // 2) OTP
     if (token_hash && type) {
         const { error } = await supabase.auth.verifyOtp({ type, token_hash });
-        if (!error) return NextResponse.redirect(`${origin}${next}`);
+        if (!error) return NextResponse.redirect(getRedirectUrl(nextParam));
 
         return NextResponse.redirect(
             `${origin}/login?message=Could%20not%20verify%20the%20magic%20link`
