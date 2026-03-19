@@ -1,31 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import { Play, Volume2, VolumeX, ChevronDown, Check } from 'lucide-react'
+import { Play, Volume2, ChevronDown, Check } from 'lucide-react'
 import './landing.css'
 
 export default function LandingPage() {
-  const audioRef = useRef<HTMLAudioElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.15
-    }
-  }, [])
-
-  const toggleMusic = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play().catch(console.error)
-      }
-      setIsPlaying(!isPlaying)
-    }
-  }
 
   const faqs = [
     { q: '¿Necesito experiencia previa?', a: 'No. El neuroentrenamiento está diseñado para guiarte desde cero. Solo necesitas el compromiso de escuchar el audio diario correspondiente.' },
@@ -49,7 +30,6 @@ export default function LandingPage() {
           className="hero-video-bg"
           poster="/vision_board_new.jpg"
         >
-          {/* We assume the user will upload a video later, fallback to the vision board image using poster for now */}
         </video>
         <div className="hero-overlay"></div>
         
@@ -64,11 +44,11 @@ export default function LandingPage() {
             21 días para reducir el ruido mental, recuperar claridad y volver a enfocarte en lo que realmente importa.
           </p>
           
-          <div className="grid grid-cols-4 gap-1 sm:gap-4 text-[8px] sm:text-xs md:text-sm text-white/60 mb-14 w-full max-w-lg mx-auto px-2">
-            <div className="flex flex-col items-center gap-1.5"><Check size={14} className="text-white/40"/> <span className="whitespace-nowrap">App Mobile</span></div>
-            <div className="flex flex-col items-center gap-1.5"><Check size={14} className="text-white/40"/> <span className="whitespace-nowrap">3 Audios</span></div>
-            <div className="flex flex-col items-center gap-1.5"><Check size={14} className="text-white/40"/> <span className="whitespace-nowrap">Ebook</span></div>
-            <div className="flex flex-col items-center gap-1.5"><Check size={14} className="text-white/40"/> <span className="whitespace-nowrap">Acceso total</span></div>
+          <div className="grid grid-cols-4 gap-2 sm:gap-4 text-[10px] sm:text-xs md:text-sm text-white/60 mb-14 w-full max-w-lg mx-auto px-2">
+            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-white/40"/> <span className="whitespace-nowrap">App Mobile</span></div>
+            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-white/40"/> <span className="whitespace-nowrap">3 Audios</span></div>
+            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-white/40"/> <span className="whitespace-nowrap">Ebook</span></div>
+            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-white/40"/> <span className="whitespace-nowrap">Acceso total</span></div>
           </div>
 
           <a href="#oferta" className="btn-cta-hero">
@@ -81,16 +61,21 @@ export default function LandingPage() {
       <section className="section-padding bg-[var(--color-smoke)]">
         <div className="container-narrow text-center">
           <h2 className="text-3xl md:text-5xl font-serif mb-12 leading-tight">
-            No te falta disciplina.<br/>
-            <span className="italic text-[var(--color-petroleum)]">Te sobra saturación mental.</span>
+            No se trata de falta de capacidad.<br/>
+            <span className="italic text-[var(--color-petroleum)]">Se trata de exceso de ruido.</span>
           </h2>
           
-          <div className="text-left md:text-center text-lg text-black/70 space-y-6 max-w-xl mx-auto font-light">
-            <p>Pasás demasiadas horas detrás de pantallas.</p>
-            <p>Sentís que tu atención se dispersa a lo largo del día y cada vez te cuesta más sostener el enfoque.</p>
-            <p>Tu cabeza nunca frena del todo. Vivís procesando información, notificaciones y estímulos constantes.</p>
-            <p className="font-medium text-black/90">
-              No sentís que te falte capacidad. Sentís que te sobra ruido. Y cuando la mente está saturada, es imposible estar realmente presente.
+          <div className="text-left md:text-center text-lg text-black/70 space-y-6 max-w-xl mx-auto font-light leading-relaxed">
+            <p>Pasás muchas horas detrás de pantallas.</p>
+            <p>Tu atención se fragmenta a lo largo del día.</p>
+            <p>Te cuesta sostener el foco, estar presente y sentir claridad.</p>
+            <p className="font-medium text-black/90 pt-4">
+              No necesariamente te falta disciplina.<br/> 
+              Muchas veces, lo que sobra es saturación mental.
+            </p>
+            <p className="pt-2">
+              Y cuando la mente vive procesando estímulos todo el tiempo,<br/>
+              hasta lo simple empieza a sentirse pesado.
             </p>
           </div>
         </div>
@@ -105,7 +90,6 @@ export default function LandingPage() {
             TRI-NEO es un neuroentrenamiento práctico de 21 días. No vas a encontrar teorías eternas ni filosofía compleja. Es un proceso simple, claro y progresivo diseñado específicamente para la mente moderna sobreestimulada.
           </p>
           
-          {/* Mockup Premium Placeholder */}
           <div className="aspect-[16/9] w-full max-w-4xl mx-auto bg-[#F5F5F7] rounded-3xl overflow-hidden border border-black/5 relative shadow-2xl flex items-center justify-center">
              <img src="/tri_neo_mockup_caribbean_1773948768809.png" alt="TRI-NEO App Interface" className="w-full h-full object-cover" />
           </div>
@@ -124,7 +108,7 @@ export default function LandingPage() {
             <div className="method-card">
               <span className="method-number">1</span>
               <h3 className="text-xl font-bold mb-4">Calmar el sistema</h3>
-              <p className="text-black/70 font-light line-clamp-4">
+              <p className="text-black/70 font-light">
                 El primer paso no es hacer más, es frenar. Prácticas diseñadas para apagar la alerta constante de tu sistema nervioso, bajar el ruido inicial y darle espacio a tu mente para respirar.
               </p>
             </div>
@@ -132,7 +116,7 @@ export default function LandingPage() {
             <div className="method-card">
               <span className="method-number">2</span>
               <h3 className="text-xl font-bold mb-4">Reconfigurar la atención</h3>
-              <p className="text-black/70 font-light line-clamp-4">
+              <p className="text-black/70 font-light">
                 Una vez que el agua se calma, podés ver el fondo. Aquí aprendés a salir del piloto automático, volver al cuerpo y recuperar la musculatura de tu atención para sostener el foco.
               </p>
             </div>
@@ -140,8 +124,8 @@ export default function LandingPage() {
             <div className="method-card">
               <span className="method-number">3</span>
               <h3 className="text-xl font-bold mb-4">Expandir presencia</h3>
-              <p className="text-black/70 font-light line-clamp-4">
-                Desde una mente menos saturada, todo cambia. En esta fase finales abrimos espacio para que surjan la claridad, la intuición y la creatividad de forma natural y fluida.
+              <p className="text-black/70 font-light">
+                Desde una mente menos saturada, todo cambia. En esta fase final abrimos espacio para que surjan la claridad, la intuición y la creatividad de forma natural y fluida.
               </p>
             </div>
           </div>
@@ -317,23 +301,6 @@ export default function LandingPage() {
           <p className="text-sm text-black/40">© 2026 TRI-NEO. Diseñado para la claridad.</p>
         </div>
       </footer>
-
-      {/* Ambient Audio Player (Subtle approach) */}
-      <audio id="landing-ambient" ref={audioRef} loop>
-        <source src="/audios/ambient.mp3" type="audio/mpeg" />
-      </audio>
-
-      <button
-        onClick={toggleMusic}
-        className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shadow-xl border ${
-          isPlaying 
-            ? 'bg-[var(--color-petroleum)] text-[var(--color-sand)] border-white/10' 
-            : 'bg-white text-black/40 border-black/10'
-        }`}
-        aria-label="Toggle ambient sound"
-      >
-        {isPlaying ? <Volume2 size={20} /> : <VolumeX size={20} />}
-      </button>
 
     </main>
   )
