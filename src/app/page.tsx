@@ -196,12 +196,21 @@ export default function LandingPage() {
             </div>
             <div className="w-full md:w-7/12">
               <h2 className="text-3xl font-serif mb-6">De la saturación a la claridad</h2>
-              <div className="text-black/70 space-y-4 font-light">
-                <p>Hace un tiempo, sentía que tenía la cabeza llena todo el tiempo. Pensamientos, planes, ruido constante. Me di cuenta de que por más que cambiara de lugar, si mi mente seguía igual, la saturación viajaba conmigo.</p>
-                <p>Pasé los últimos 5 años viajando por América, viviendo con comunidades en el Amazonas y participando en retiros de más de 100 horas de silencio y meditación profunda.</p>
-                <p>TRI-NEO es la síntesis de esa búsqueda larga y honda, sin adornos y adaptada a la vida real. Es el método que me hubiera gustado tener cuando sentía que el ruido de la ciudad me estaba superando.</p>
-                <p className="font-medium text-black mt-6">Ramiro</p>
-                <p className="text-sm uppercase tracking-widest text-black/40">Fundador</p>
+              <div className="text-black/70 space-y-4 font-light leading-relaxed">
+                <p>Durante un tiempo cumplí varias metas que pensaba que me iban a hacer sentir pleno. Había comprado mi casa, mi auto, vivía viajando y, desde afuera, parecía que todo estaba bastante bien.</p>
+                <p>Pero adentro seguía habiendo ruido. La mente no frenaba. Seguían los pensamientos, la ansiedad, la sensación de no estar realmente en paz.</p>
+                <p>Ahí entendí algo que me cambió la mirada: cumplí cosas que pensé que me iban a llenar, pero la plenitud no apareció porque el desorden estaba adentro.</p>
+                <p>Y fue desde esa búsqueda que empezó a nacer <span className="font-medium text-black">TRI-NEO</span>.</p>
+                <p>Con el tiempo empecé a explorar distintas formas de bajar ese ruido: práctica, lecturas, viajes, naturaleza y experiencias profundas de silencio y meditación.</p>
+                <p>Así fui entendiendo algo simple, pero clave: <span className="italic text-black/90">la mente moderna no está rota, está sobreestimulada.</span></p>
+                <p>Vivimos con demasiados estímulos, demasiadas horas detrás de pantallas, la atención fragmentada y cada vez menos espacio para estar realmente presentes.</p>
+                <p>TRI-NEO nace como respuesta a eso. Un neuroentrenamiento de 21 días en 3 fases para bajar el ruido mental, recuperar claridad y volver a enfocarte en lo que realmente importa.</p>
+                <p>No nació como una teoría más. Nació como la síntesis de una búsqueda real.</p>
+                <p className="pt-4 italic">El método que a mí me hubiera gustado tener cuando sentía que, aun logrando cosas afuera, adentro algo seguía desordenado.</p>
+                <div className="pt-6">
+                  <p className="font-medium text-black">Ramiro</p>
+                  <p className="text-sm uppercase tracking-widest text-black/40">Fundador</p>
+                </div>
               </div>
             </div>
           </div>
