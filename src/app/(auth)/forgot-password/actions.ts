@@ -14,32 +14,13 @@ export async function resetPassword(formData: FormData) {
     const supabase = await createClient()
     const siteUrl = getSiteUrl()
 
-    // 1. Verify if user is authorized to recover password
-    let isAuthorized = false;
+    // 1. Verify if user is authorized to recover password via secure RPC
+    const { data: isAuthorized, error: rpcError } = await supabase.rpc('check_recovery_eligibility', {
+        email_to_check: email
+    })
 
-    // Check if user exists and has lifetime_access
-    const { data: user } = await supabase
-        .from('users')
-        .select('lifetime_access')
-        .eq('email', email)
-        .single()
-
-    if (user?.lifetime_access) {
-        isAuthorized = true;
-    } else {
-        // If not in users with access, check pre-authorized emails
-        const { data: preAuth } = await supabase
-            .from('authorized_emails')
-            .select('email')
-            .eq('email', email)
-            .single()
-        
-        if (preAuth) {
-            isAuthorized = true;
-        }
-    }
-
-    if (!isAuthorized) {
+    if (rpcError || !isAuthorized) {
+        console.error('Unauthorized recovery attempt or RPC error:', rpcError)
         return redirect('/forgot-password?message=El administrador aún no ha habilitado tu acceso a la plataforma.')
     }
 
