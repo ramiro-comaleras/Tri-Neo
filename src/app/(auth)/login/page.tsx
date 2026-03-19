@@ -16,8 +16,8 @@ function LoginForm() {
   const [isLogin, setIsLogin] = useState(initialType !== 'register')
 
   return (
-    <MeshBackground className="flex items-center justify-center p-6 min-h-[100dvh]">
-      <div className="w-full max-w-md animate-scale-in z-10">
+    <MeshBackground className="items-center justify-center p-6">
+      <div className="w-full max-w-md animate-scale-in">
 
         <div className="flex flex-col items-center mb-10">
           <Link href="/" className="mb-6 w-32 h-32 relative">
@@ -75,10 +75,15 @@ function LoginForm() {
             </Button>
           </form>
 
-          <div className="mt-6 text-center text-sm text-white/60">
-            <button type="button" onClick={() => setIsLogin(!isLogin)} className="text-gold hover:underline transition-all">
+          <div className="mt-6 flex flex-col items-center gap-4 text-sm text-white/60">
+            <button type="button" onClick={() => setIsLogin(!isLogin)} className="text-gold hover:underline transition-all font-medium">
               {isLogin ? "¿Primera vez? Solicita tu acceso aquí." : "¿Ya tienes cuenta? Ingresar."}
             </button>
+            {isLogin && (
+              <Link href="/forgot-password" title="Recuperar acceso" className="text-white/30 hover:text-white/60 transition-colors">
+                Recuperar mi clave →
+              </Link>
+            )}
           </div>
 
           <div className="mt-8 text-center text-sm text-white/60 border-t border-white/5 pt-6">

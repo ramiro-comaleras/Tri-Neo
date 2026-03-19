@@ -16,7 +16,7 @@ export function MeshBackground({ children, className = '' }: { children?: React.
             </div>
 
             {/* Content wrapper */}
-            <div className="relative z-10 h-full w-full">
+            <div className={`relative z-10 flex-1 flex flex-col ${className}`}>
                 {children}
             </div>
         </div>

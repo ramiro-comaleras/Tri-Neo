@@ -3,7 +3,23 @@
 import { createClient } from '@/shared/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
 
+async function checkIsAdmin() {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return false
+
+    const { data: adminUser } = await supabase
+        .from('users')
+        .select('is_admin')
+        .eq('id', user.id)
+        .single()
+
+    return !!adminUser?.is_admin
+}
+
 export async function getUsers(query?: string) {
+    if (!(await checkIsAdmin())) throw new Error('Unauthorized')
+    
     const supabase = await createClient()
 
     let dbQuery = supabase
@@ -26,19 +42,9 @@ export async function getUsers(query?: string) {
 }
 
 export async function toggleLifetimeAccess(userId: string, currentStatus: boolean, note?: string) {
+    if (!(await checkIsAdmin())) throw new Error('Unauthorized')
+    
     const supabase = await createClient()
-
-    // 1. Verify if the current user is admin (security check)
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) throw new Error('Unauthorized')
-
-    const { data: adminUser } = await supabase
-        .from('users')
-        .select('is_admin')
-        .eq('id', user.id)
-        .single()
-
-    if (!adminUser?.is_admin) throw new Error('Forbidden')
 
     // 2. Perform the update
     const { error } = await supabase
@@ -62,6 +68,8 @@ export async function toggleLifetimeAccess(userId: string, currentStatus: boolea
 }
 
 export async function getPreAuthorizedEmails() {
+    if (!(await checkIsAdmin())) throw new Error('Unauthorized')
+    
     const supabase = await createClient()
     const { data, error } = await supabase
         .from('authorized_emails')
@@ -76,13 +84,9 @@ export async function getPreAuthorizedEmails() {
 }
 
 export async function preAuthorizeEmail(email: string) {
+    if (!(await checkIsAdmin())) throw new Error('Unauthorized')
+    
     const supabase = await createClient()
-
-    // Auth check
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) throw new Error('Unauthorized')
-    const { data: adminUser } = await supabase.from('users').select('is_admin').eq('id', user.id).single()
-    if (!adminUser?.is_admin) throw new Error('Forbidden')
 
     const { error } = await supabase
         .from('authorized_emails')
@@ -98,13 +102,9 @@ export async function preAuthorizeEmail(email: string) {
 }
 
 export async function removePreAuthorizedEmail(email: string) {
+    if (!(await checkIsAdmin())) throw new Error('Unauthorized')
+    
     const supabase = await createClient()
-
-    // Auth check
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) throw new Error('Unauthorized')
-    const { data: adminUser } = await supabase.from('users').select('is_admin').eq('id', user.id).single()
-    if (!adminUser?.is_admin) throw new Error('Forbidden')
 
     const { error } = await supabase
         .from('authorized_emails')
