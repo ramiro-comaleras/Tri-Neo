@@ -138,33 +138,36 @@ export default function LandingPage() {
           
           <div>
             <h2 className="text-3xl font-serif mb-10">Tu ecosistema de práctica</h2>
-            <ul className="space-y-6">
+            <ul className="space-y-8 text-left">
               <li className="flex items-start gap-4">
                 <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Play size={16}/></div>
                 <div>
-                  <h4 className="font-bold text-lg">App Web Dedicada</h4>
-                  <p className="text-black/60 font-light">Una plataforma hermosa y sin distracciones para tu proceso.</p>
+                  <h4 className="font-bold text-lg leading-tight mb-1">App web dedicada</h4>
+                  <p className="text-black/60 font-light">Una plataforma simple, clara y sin distracciones para hacer el proceso a tu ritmo.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
                 <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Volume2 size={16}/></div>
                 <div>
-                  <h4 className="font-bold text-lg">3 Audios Guiados Premium</h4>
+                  <h4 className="font-bold text-lg leading-tight mb-1">3 audios guiados</h4>
                   <p className="text-black/60 font-light">Diseñados neuroacústicamente para cada una de las 3 fases.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
                 <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Check size={16}/></div>
                 <div>
-                  <h4 className="font-bold text-lg">Ebook "El Método"</h4>
-                  <p className="text-black/60 font-light">50 páginas con la base clínica, filosófica y práctica.</p>
+                  <h4 className="font-bold text-lg leading-tight mb-1">Ebook del método</h4>
+                  <p className="text-black/60 font-light">La base teórica, práctica y filosófica de TRI-NEO, explicada de forma clara y aplicable.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
                 <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Check size={16}/></div>
                 <div>
-                  <h4 className="font-bold text-lg">Acceso Vitalicio</h4>
-                  <p className="text-black/60 font-light">Seguimiento de 21 días. Sin suscripciones. Tuyo para siempre.</p>
+                  <h4 className="font-bold text-lg leading-tight mb-1">Acceso de por vida</h4>
+                  <p className="text-black/60 font-light">
+                    Pago único. Sin suscripciones.<br/>
+                    El proceso queda disponible para vos siempre que quieras volver.
+                  </p>
                 </div>
               </li>
             </ul>
