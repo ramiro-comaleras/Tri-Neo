@@ -110,13 +110,14 @@ export default function LandingPage() {
             TRI-NEO es un neuroentrenamiento práctico de 21 días. No vas a encontrar teorías eternas ni filosofía compleja. Es un proceso simple, claro y progresivo diseñado específicamente para la mente moderna sobreestimulada.
           </p>
           
-          <div className="aspect-[9/19.5] w-full max-w-xs mx-auto rounded-3xl overflow-hidden relative shadow-2xl flex items-center justify-center p-2 bg-gradient-to-tr from-white/5 to-white/10 ring-1 ring-white/10">
+          <div className="aspect-[9/18] w-full max-w-xs mx-auto rounded-3xl overflow-hidden relative shadow-2xl flex items-center justify-center p-2 bg-gradient-to-tr from-white/5 to-white/10 ring-1 ring-white/10">
              <video 
                autoPlay 
                loop 
                muted 
                playsInline 
                className="w-full h-full object-cover rounded-2xl"
+               style={{ objectPosition: 'center bottom' }}
                poster="/interfaz app/interfaz app-Cover.jpg"
              >
                <source src="/interfaz app/interfaz-app.mp4" type="video/mp4" />
