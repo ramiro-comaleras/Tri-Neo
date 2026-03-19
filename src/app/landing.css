@@ -97,14 +97,18 @@
 }
 
 /* Inverse buttons for dark sections */
+/* Inverse buttons for dark sections */
 .btn-primary-inverse {
-  background-color: var(--color-white);
-  color: var(--color-petroleum);
-  border-color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .btn-primary-inverse:hover {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
   color: var(--color-white);
 }
 

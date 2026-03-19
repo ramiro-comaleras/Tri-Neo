@@ -55,18 +55,19 @@ export default function LandingPage() {
         
         <div className="hero-content container-narrow animate-fade-up">
           <p className="text-white/60 tracking-[0.2em] uppercase text-xs font-semibold mb-8">Método TRI-NEO</p>
-          <h1 className="text-4xl md:text-6xl font-serif text-white leading-tight mb-6">
-            Cuando la mente se calma,<br/>la vida se ordena.
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif text-white leading-tight mb-6">
+            Cuando la mente se<br className="block md:hidden"/> calma,<br className="hidden md:block"/>
+            la vida se ordena.
           </h1>
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 font-light">
-            Un neuroentrenamiento de 21 días en 3 fases para reducir el ruido mental, recuperar claridad y volver a enfocarte en lo que realmente importa.
+          <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 font-light">
+            21 días para reducir el ruido mental, recuperar claridad y volver a enfocarte en lo que realmente importa.
           </p>
           
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-white/70 mb-12">
-            <span className="flex items-center gap-1"><Check size={16}/> App Terminada</span>
-            <span className="flex items-center gap-1"><Check size={16}/> 3 Audios Guiados</span>
-            <span className="flex items-center gap-1"><Check size={16}/> Ebook Teórico</span>
-            <span className="flex items-center gap-1"><Check size={16}/> Acceso de por vida</span>
+          <div className="flex justify-center md:flex-wrap items-center gap-2 md:gap-4 text-[10px] sm:text-xs md:text-sm text-white/70 mb-12 w-full max-w-full overflow-hidden">
+            <span className="flex items-center gap-1 whitespace-nowrap"><Check size={14}/> App Mobile</span>
+            <span className="flex items-center gap-1 whitespace-nowrap"><Check size={14}/> 3 Audios Guiados</span>
+            <span className="flex items-center gap-1 whitespace-nowrap"><Check size={14}/> Ebook Teórico</span>
+            <span className="flex items-center gap-1 whitespace-nowrap"><Check size={14}/> Acceso vitalicio</span>
           </div>
 
           <a href="#oferta" className="btn-primary-inverse">
