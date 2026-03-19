@@ -97,19 +97,27 @@
 }
 
 /* Inverse buttons for dark sections */
-/* Inverse buttons for dark sections */
-.btn-primary-inverse {
-  background-color: rgba(255, 255, 255, 0.1);
+.btn-cta-hero {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
   color: var(--color-white);
-  border-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  padding: 1.1rem 2.5rem;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
 }
 
-.btn-primary-inverse:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
-  color: var(--color-white);
+.btn-cta-hero:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.4);
 }
 
 /* Hero Section */
@@ -119,9 +127,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center; /* Explicit centering */
   overflow: hidden;
   background-color: var(--color-petroleum);
   color: var(--color-white);
+  width: 100%;
 }
 
 .hero-video-bg {
