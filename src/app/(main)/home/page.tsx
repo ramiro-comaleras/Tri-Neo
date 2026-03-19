@@ -35,6 +35,8 @@ const PHASES = [
     }
 ]
 
+import { PwaInstallPrompt } from '@/features/pwa/components/PwaInstallPrompt'
+
 export default async function HomePage() {
     const supabase = await createClient()
 
@@ -58,6 +60,7 @@ export default async function HomePage() {
     if (!profile.lifetime_access) {
         return (
             <MeshBackground className="flex items-center justify-center p-6 min-h-[100dvh]">
+                <PwaInstallPrompt />
                 <div className="max-w-md w-full z-10 animate-fade-in">
                     <GlassCard className="text-center p-8 border-gold/20 shadow-2xl shadow-gold/5">
                         <div className="w-20 h-20 bg-gold/10 rounded-3xl flex items-center justify-center mx-auto mb-6 border border-gold/30">
@@ -102,6 +105,7 @@ export default async function HomePage() {
 
     return (
         <MeshBackground className="p-6 min-h-[100dvh] pt-16 sm:pt-24 pb-24">
+            <PwaInstallPrompt />
             <div className="max-w-md mx-auto z-10 relative">
                 <header className="mb-10 animate-slide-up">
                     <h1 className="font-headings text-2xl sm:text-3xl text-white font-medium mb-2 text-balance">
