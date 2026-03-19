@@ -198,8 +198,8 @@ export default function LandingPage() {
               <h2 className="text-3xl font-serif mb-6">De la saturación a la claridad</h2>
               <div className="text-black/70 space-y-4 font-light">
                 <p>Hace un tiempo, sentía que tenía la cabeza llena todo el tiempo. Pensamientos, planes, ruido constante. Me di cuenta de que por más que cambiara de lugar, si mi mente seguía igual, la saturación viajaba conmigo.</p>
-                <p>Pasé los últimos 5 años viajando por América, viviendo con comunidades en el Amazonas y participando en retiros de más de 100 horas de silencio clínico y meditación profunda.</p>
-                <p>TRI-NEO es la síntesis de esa búsqueda larga y honda, despojada de adornos y adaptada a la vida real. Es el método que me hubiera gustado tener cuando sentía que el ruido de la ciudad me estaba ganando.</p>
+                <p>Pasé los últimos 5 años viajando por América, viviendo con comunidades en el Amazonas y participando en retiros de más de 100 horas de silencio y meditación profunda.</p>
+                <p>TRI-NEO es la síntesis de esa búsqueda larga y honda, sin adornos y adaptada a la vida real. Es el método que me hubiera gustado tener cuando sentía que el ruido de la ciudad me estaba superando.</p>
                 <p className="font-medium text-black mt-6">Ramiro</p>
                 <p className="text-sm uppercase tracking-widest text-black/40">Fundador</p>
               </div>
