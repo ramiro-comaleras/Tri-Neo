@@ -14,29 +14,29 @@
 /* --- Background & Animations --- */
 .background-fx {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-    pointer-events: none;
-    background: radial-gradient(circle at 50% 100%, #0a2520 0%, #020404 100%);
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1; overflow: hidden; pointer-events: none;
+    background: #010101;
 }
 
 .background-fx.nature-theme {
-    background: radial-gradient(circle at 10% 10%, #051a1c 0%, #020202 100%);
+    background: radial-gradient(circle at 0% 0%, #062b2b 0%, #010101 100%);
 }
 
 .tropical-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: url('https://images.unsplash.com/photo-1518281400274-07715124ae61?auto=format&fit=crop&q=80&w=2670') center center / cover no-repeat;
-    opacity: 0.08;
-    filter: sepia(30%) grayscale(50%);
+    opacity: 0.15;
+    filter: sepia(10%) grayscale(10%) contrast(1.1);
+}
+
+.atmosphere-glow {
+    position: absolute;
+    top: -20vh; left: 50%; transform: translateX(-50%);
+    width: 150vw; height: 100vh;
+    background: radial-gradient(circle at center, rgba(16, 219, 172, 0.15), transparent 70%);
+    filter: blur(100px);
 }
 
 [class^="stars-"] {

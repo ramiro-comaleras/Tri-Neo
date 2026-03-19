@@ -56,11 +56,11 @@ export default function LandingPage() {
           <img src="/logo_final.png" alt="Tri-Neo Logo" />
         </div>
         <h1 className="animate-enter delay-2">
-          Podés estar en el Caribe...<br />
-          <span className="italic">pero si tu mente tiene ruido, vivís en una jaula.</span>
+          Podés cumplir todos tus objetivos...<br />
+          <span className="italic">pero sin calma mental, el éxito es una jaula invisible.</span>
         </h1>
         <p className="animate-enter delay-3">
-          Un proceso de 21 días para desmantelar la saturación mental y recuperar tu libertad interior.
+          Un proceso de 21 días para desmantelar la saturación mental y recuperar tu libertad real.
         </p>
 
         <div className="mt-8 animate-enter delay-4">
