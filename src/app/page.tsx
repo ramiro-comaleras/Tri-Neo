@@ -45,14 +45,9 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen">
       {/* Background Effects */}
-      <div className="background-fx">
-        <div className="stars-small"></div>
-        <div className="stars-medium"></div>
-        <div className="stars-large"></div>
+      <div className="background-fx nature-theme">
         <div className="atmosphere-glow"></div>
-        <div className="cosmic-ocean wave-1"></div>
-        <div className="cosmic-ocean wave-2"></div>
-        <div className="cosmic-ocean wave-3"></div>
+        <div className="tropical-overlay"></div>
       </div>
 
       {/* Hero Section */}
@@ -61,12 +56,32 @@ export default function LandingPage() {
           <img src="/logo_final.png" alt="Tri-Neo Logo" />
         </div>
         <h1 className="animate-enter delay-2">
-          Hay lugares donde<br />
-          <span className="italic">el tiempo se detiene.</span>
+          Podés estar en el Caribe...<br />
+          <span className="italic">pero si tu mente tiene ruido, vivís en una jaula.</span>
         </h1>
         <p className="animate-enter delay-3">
-          21 días para devolverle calma al sistema nervioso y bajar la ansiedad mental.
+          Un proceso de 21 días para desmantelar la saturación mental y recuperar tu libertad interior.
         </p>
+
+        <div className="mt-8 animate-enter delay-4">
+          <a href="#precio" className="cta-button-premium">Comenzar mi proceso</a>
+        </div>
+      </section>
+
+      {/* Problem Section (Ad 2 Hook) */}
+      <section className="landing-container landing-section pt-0">
+        <div className="problem-statement animate-enter delay-4">
+          <div className="flex flex-col items-center max-w-2xl mx-auto text-center">
+            <h2 className="text-white/40 text-sm font-bold uppercase tracking-[0.2em] mb-6">El problema real</h2>
+            <p className="font-headings text-2xl sm:text-3xl text-white italic mb-10 leading-snug">
+              "No te falta disciplina, te sobra saturación mental."
+            </p>
+            <div className="w-16 h-[1px] bg-white/20 mb-10"></div>
+            <p className="text-white/60 text-lg leading-relaxed">
+              Vivimos en una época de constante estimulación. Tu mente no está rota, simplemente está cansada de procesar tanto ruido.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Value Propositions */}
