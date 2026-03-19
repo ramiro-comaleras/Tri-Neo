@@ -119,6 +119,7 @@ export default function LandingPage() {
                className="w-full h-full object-cover rounded-2xl"
                poster="/interfaz app/interfaz app-Cover.jpg"
              >
+               <source src="/interfaz app/interfaz-app.mp4" type="video/mp4" />
                <source src="/interfaz app/interfaz app.mov" type="video/quicktime" />
              </video>
           </div>
