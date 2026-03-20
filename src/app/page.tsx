@@ -371,12 +371,12 @@ export default function LandingPage() {
               Comenzar ahora
             </a>
 
-            <div className="flex flex-col items-center gap-2 mt-6 opacity-30 grayscale hover:grayscale-0 transition-all duration-300">
+            <div className="flex flex-col items-center gap-2 mt-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/50">Pagos seguros vía</span>
               <img 
                 src="https://cdn.simpleicons.org/mercadopago/white" 
                 alt="Mercado Pago" 
-                className="h-4 w-auto object-contain"
+                className="h-8 w-auto object-contain"
               />
             </div>
             
