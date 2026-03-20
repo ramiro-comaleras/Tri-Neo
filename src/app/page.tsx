@@ -46,7 +46,7 @@ export default function LandingPage() {
           muted 
           playsInline 
           className="hero-video-bg"
-          poster="/fondo.jpeg"
+          poster="/fondo hero.jpeg"
         >
         </video>
         <div className="hero-overlay"></div>
