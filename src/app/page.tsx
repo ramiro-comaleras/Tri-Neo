@@ -67,9 +67,19 @@ export default function LandingPage() {
             <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">Acceso de por vida</span></div>
           </div>
 
-          <a href="#oferta" className="btn-cta-hero">
-            Empezar ahora
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#oferta" className="btn-cta-hero w-full sm:w-auto text-center">
+              Empezar ahora
+            </a>
+            <a 
+              href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20el%20audio%20gratuito%20de%20TRI-NEO." 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-secondary-hero w-full sm:w-auto text-center"
+            >
+              Probar audio gratuito
+            </a>
+          </div>
         </div>
       </section>
 
@@ -105,6 +115,53 @@ export default function LandingPage() {
                 hasta lo simple empieza a sentirse pesado.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.5 Lead Magnet (Audio Gratuito) */}
+      <section className="section-padding relative">
+        <div className="container-narrow reveal text-center">
+          <div className="glass-panel p-10 md:p-14 border border-white/10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-sand)]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            
+            <h2 className="text-3xl md:text-4xl font-serif text-white leading-tight mb-6 relative z-10">
+              ¿Todavía no estás listo para<br className="hidden md:block"/> empezar el proceso completo?
+            </h2>
+            
+            <p className="text-lg text-white/70 font-light max-w-2xl mx-auto mb-10 relative z-10">
+              Prueba primero una experiencia breve de TRI-NEO. Recibe gratis un audio guiado de 6 minutos para bajar revoluciones, volver a la respiración y sentir una primera experiencia real de calma y claridad.
+            </p>
+            
+            <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-12 text-sm text-white/80 relative z-10">
+              <div className="flex items-center gap-2">
+                <div className="bg-white/10 p-1.5 rounded-full"><Volume2 size={14} className="text-[var(--color-sand)]" /></div>
+                <span>Audio guiado de práctica</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-white/10 p-1.5 rounded-full"><Book size={14} className="text-[var(--color-sand)]" /></div>
+                <span>PDF de acompañamiento</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-white/10 p-1.5 rounded-full"><Check size={14} className="text-[var(--color-sand)]" /></div>
+                <span>Acceso por WhatsApp</span>
+              </div>
+            </div>
+            
+            <div className="relative z-10 max-w-sm mx-auto">
+              <a 
+                href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20el%20audio%20gratuito%20de%20TRI-NEO."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center bg-white text-[var(--color-petroleum)] font-medium py-4 px-8 rounded-full shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.25)] hover:scale-[1.02] transition-all duration-300"
+              >
+                Quiero recibirlo gratis
+              </a>
+              <p className="text-xs text-white/40 mt-4 italic font-light">
+                Ideal si sientes saturación mental, exceso de estímulos o dificultad para bajar un cambio.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
