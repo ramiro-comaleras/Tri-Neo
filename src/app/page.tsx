@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Play, Volume2, ChevronDown, Check, Book } from 'lucide-react'
+import { track } from '@vercel/analytics'
 import './landing.css'
 
 function useScrollReveal() {
@@ -68,7 +69,11 @@ export default function LandingPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#oferta" className="btn-cta-hero w-full sm:w-auto text-center">
+            <a 
+              href="#oferta" 
+              className="btn-cta-hero w-full sm:w-auto text-center"
+              onClick={() => track('Hero - Empezar Ahora')}
+            >
               Empezar ahora
             </a>
             <a 
@@ -76,6 +81,7 @@ export default function LandingPage() {
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn-secondary-hero w-full sm:w-auto text-center"
+              onClick={() => track('Hero - Probar Audio Gratuito')}
             >
               Probar audio gratuito
             </a>
@@ -154,6 +160,7 @@ export default function LandingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-white text-[var(--color-petroleum)] font-medium py-4 px-8 rounded-full shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.25)] hover:scale-[1.02] transition-all duration-300"
+                onClick={() => track('Lead Magnet - Quiero recibirlo gratis')}
               >
                 Quiero recibirlo gratis
               </a>
@@ -367,7 +374,13 @@ export default function LandingPage() {
             <div className="text-xs font-bold tracking-widest uppercase text-[var(--color-sand)] mb-2">Acceso Total</div>
             <div className="text-5xl font-serif font-light mb-8">$19.000 ARG</div>
             
-            <a href="https://wa.me/5493433031111?text=Hola,%20quiero%20comenzar%20el%20reto%20TRI-NEO..." target="_blank" rel="noopener noreferrer" className="btn-primary w-full block mb-4">
+            <a 
+              href="https://wa.me/5493433031111?text=Hola,%20quiero%20comenzar%20el%20reto%20TRI-NEO..." 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-primary w-full block mb-4"
+              onClick={() => track('Oferta - Comenzar Ahora')}
+            >
               Comenzar ahora
             </a>
 

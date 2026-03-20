@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Roboto_Slab, Montserrat, Space_Grotesk } from 'next/font/google'
 import { siteConfig } from '@/config/siteConfig'
 import './globals.css'
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const robotoSlab = Roboto_Slab({ subsets: ['latin'], variable: '--font-roboto-slab' })
@@ -48,6 +50,8 @@ export default function RootLayout({
     <html lang="es" className={`${inter.variable} ${robotoSlab.variable} ${montserrat.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans bg-background text-foreground antialiased min-h-screen overscroll-none">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
