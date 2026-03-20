@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Play, Volume2, ChevronDown, Check, Book } from 'lucide-react'
+import { Play, Volume2, ChevronDown, Check, Book, Instagram } from 'lucide-react'
 import { track } from '@vercel/analytics'
 import './landing.css'
 
@@ -310,9 +310,21 @@ export default function LandingPage() {
                 <p>Desde esa búsqueda empecé a profundizar más: viajé por América, compartí tiempo con comunidades dentro del Amazonas y participé en retiros en las montañas, explorando prácticas de silencio y meditación.</p>
                 <p className="font-medium text-[var(--color-sand)]">De ese recorrido nació TRI-NEO.</p>
                 <p>Hoy, esa búsqueda se convirtió en un neuroentrenamiento de 21 días en 3 fases para reducir el ruido mental, recuperar claridad y volver a enfocarte en lo que realmente importa. </p>
-                <div className="pt-6 border-t border-white/10 mt-6">
-                  <p className="font-medium text-white">Ramiro</p>
-                  <p className="text-sm uppercase tracking-widest text-white/40">Fundador</p>
+                <div className="pt-6 border-t border-white/10 mt-6 flex items-center justify-between">
+                  <div>
+                    <p className="font-medium text-white">Ramiro</p>
+                    <p className="text-sm uppercase tracking-widest text-white/40">Fundador</p>
+                  </div>
+                  <a 
+                    href="https://www.instagram.com/ramacomaleras/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white/30 hover:text-[var(--color-sand)] transition-all duration-300"
+                    onClick={() => track('Click Instagram - Historia')}
+                  >
+                    <Instagram size={18} />
+                    <span className="text-sm font-light">@ramacomaleras</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -435,6 +447,19 @@ export default function LandingPage() {
       <footer className="py-12 bg-[#000] text-center border-t border-white/5 relative z-10">
         <div className="container-narrow">
           <img src="/logo_final.png" alt="TRI-NEO" className="w-12 h-12 mx-auto mb-6 opacity-30 grayscale" />
+          
+          <div className="flex justify-center gap-6 mb-8">
+            <a 
+              href="https://www.instagram.com/ramacomaleras/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/30 hover:text-[var(--color-sand)] transition-all duration-300"
+              onClick={() => track('Click Instagram - Footer')}
+            >
+              <Instagram size={20} />
+            </a>
+          </div>
+
           <p className="text-sm text-white/40">© 2026 TRI-NEO. Diseñado para la claridad.</p>
         </div>
       </footer>
