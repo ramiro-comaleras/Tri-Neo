@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Play, Volume2, ChevronDown, Check } from 'lucide-react'
+import { Play, Volume2, ChevronDown, Check, Book } from 'lucide-react'
 import './landing.css'
 
 function useScrollReveal() {
@@ -197,7 +197,7 @@ export default function LandingPage() {
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Check size={16}/></div>
+                <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Book size={16}/></div>
                 <div>
                   <h4 className="font-bold text-lg leading-tight mb-1 text-white">Ebook del método</h4>
                   <p className="text-white/60 font-light">La base teórica, práctica y filosófica de TRI-NEO, explicada de forma clara y aplicable.</p>
@@ -270,7 +270,9 @@ export default function LandingPage() {
                 "Antes de TRI-NEO me levantaba y ya agarraba el celular por inercia. Vivía acelerada. Con la Fase 1 sentí por primera vez en meses que mi cuerpo bajaba un cambio. Ahora uso el audio cada mañana antes de arrancar."
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-[var(--color-sand)]">L</div>
+                <div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/20 shadow-lg">
+                  <img src="/avatar1.png" alt="Lucía Rodríguez" className="w-full h-full object-cover" />
+                </div>
                 <div>
                   <p className="font-bold text-sm text-[var(--color-sand)]">Lucía Rodríguez</p>
                   <p className="text-xs text-white/40">Completó el proceso de 21 días</p>
@@ -283,13 +285,31 @@ export default function LandingPage() {
                 "El Ebook me cambió la forma de ver mi propia distracción. Entender que es saturación y no falta de ganas me quitó un peso enorme. El entrenamiento de atención en la Fase 2 es clave para mi trabajo."
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-[var(--color-sand)]">J</div>
+                <div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/20 shadow-lg">
+                  <img src="/avatar2.png" alt="Javier M." className="w-full h-full object-cover" />
+                </div>
                 <div>
                   <p className="font-bold text-sm text-[var(--color-sand)]">Javier M.</p>
                   <p className="text-xs text-white/40">Emprendedor</p>
                 </div>
               </div>
             </div>
+
+            <div className="glass-panel p-8 md:p-12 reveal delay-200">
+              <p className="italic text-lg text-white/90 font-serif mb-6 leading-relaxed">
+                "Nunca pensé que 15 minutos de meditación neuroacústica pudieran ser tan efectivos. La Phase 3 me hace sentir súper enfocada y presente, ya no tengo esa niebla mental constante."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/20 shadow-lg">
+                  <img src="/avatar3.png" alt="Sofía Castelli" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <p className="font-bold text-sm text-[var(--color-sand)]">Sofía Castelli</p>
+                  <p className="text-xs text-white/40">Diseñadora de Producto</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
