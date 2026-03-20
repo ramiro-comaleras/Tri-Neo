@@ -365,13 +365,22 @@ export default function LandingPage() {
           
           <div className="glass-panel p-10 max-w-md mx-auto mb-10 border border-[var(--color-sand)]/20 shadow-[0_0_50px_rgba(230,223,211,0.05)]">
             <div className="text-xs font-bold tracking-widest uppercase text-[var(--color-sand)] mb-2">Acceso Total</div>
-            <div className="text-5xl font-serif font-light mb-8">US$ 19</div>
+            <div className="text-5xl font-serif font-light mb-8">$19.000 ARG</div>
             
             <a href="https://wa.me/5493433031111?text=Hola,%20quiero%20comenzar%20el%20reto%20TRI-NEO..." target="_blank" rel="noopener noreferrer" className="btn-primary w-full block mb-4">
               Comenzar ahora
             </a>
+
+            <div className="flex flex-col items-center gap-2 mt-6 opacity-30 grayscale hover:grayscale-0 transition-all duration-300">
+              <span className="text-[9px] uppercase tracking-[0.2em] text-white/50">Pagos seguros vía</span>
+              <img 
+                src="https://cdn.simpleicons.org/mercadopago/white" 
+                alt="Mercado Pago" 
+                className="h-4 w-auto object-contain"
+              />
+            </div>
             
-            <Link href="/login" className="text-sm text-white/40 hover:text-white transition-colors block mt-6">
+            <Link href="/login" className="text-sm text-white/40 hover:text-white transition-colors block mt-8">
               Ya tengo una cuenta. Iniciar sesión.
             </Link>
           </div>
