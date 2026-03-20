@@ -54,9 +54,7 @@ export default function LandingPage() {
         <div className="hero-content container-narrow animate-fade-up">
           <p className="text-[var(--color-sand)] tracking-[0.3em] uppercase text-[10px] font-semibold mb-6">Método TRI-NEO</p>
           <h1 className="text-[2.6rem] sm:text-4xl md:text-6xl font-serif text-white leading-[1.1] mb-8 drop-shadow-lg">
-            Cuando la mente se<br className="block md:hidden"/>
-            calma,<br className="block md:hidden"/>
-            la vida se ordena.
+            Cuando la mente se calma,<br className="hidden md:block" /> la vida se ordena.
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-12 font-light text-balance px-4 drop-shadow-md">
             21 días para reducir el ruido mental, recuperar claridad y volver a enfocarte en lo que realmente importa.
@@ -291,21 +289,6 @@ export default function LandingPage() {
                 <div>
                   <p className="font-bold text-sm text-[var(--color-sand)]">Javier M.</p>
                   <p className="text-xs text-white/40">Emprendedor</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-panel p-8 md:p-12 reveal delay-200">
-              <p className="italic text-lg text-white/90 font-serif mb-6 leading-relaxed">
-                "Nunca pensé que 15 minutos de meditación neuroacústica pudieran ser tan efectivos. La Phase 3 me hace sentir súper enfocada y presente, ya no tengo esa niebla mental constante."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/20 shadow-lg">
-                  <img src="/avatar3.png" alt="Sofía Castelli" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <p className="font-bold text-sm text-[var(--color-sand)]">Sofía Castelli</p>
-                  <p className="text-xs text-white/40">Diseñadora de Producto</p>
                 </div>
               </div>
             </div>

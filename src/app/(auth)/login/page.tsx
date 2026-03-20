@@ -95,7 +95,7 @@ function LoginForm() {
 
           <div className="mt-8 text-center text-sm text-white/60 border-t border-white/5 pt-6">
             <p>¿Compraste y no recibiste acceso?</p>
-            <a href="#" className="text-gold hover:underline mt-1 inline-block">Contactar soporte</a>
+            <a href="https://wa.me/5493433031111" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline mt-1 inline-block">Contactar soporte</a>
           </div>
         </GlassCard>
       </div>
