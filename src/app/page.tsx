@@ -63,10 +63,10 @@ export default function LandingPage() {
           </p>
           
           <div className="grid grid-cols-4 gap-2 sm:gap-4 text-[10px] sm:text-xs md:text-sm text-white/60 mb-14 w-full max-w-lg mx-auto px-2">
-            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">App Mobile</span></div>
+            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">App dedicada</span></div>
             <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">3 Audios</span></div>
             <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">Ebook</span></div>
-            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">Acceso total</span></div>
+            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">Acceso de por vida</span></div>
           </div>
 
           <a href="#oferta" className="btn-cta-hero">
