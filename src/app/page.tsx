@@ -79,21 +79,21 @@ export default function LandingPage() {
       <section className="section-padding bg-[#01080A]/80 relative overflow-hidden">
         <div className="ambient-glow glow-petroleum w-[600px] h-[600px] top-0 left-[-300px]"></div>
         <div className="container-narrow reveal">
-          <div className="text-center mb-24">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-serif leading-tight">
               No se trata de falta de capacidad.<br/>
               <span className="italic text-[var(--color-sand)]">Se trata de exceso de ruido.</span>
             </h2>
           </div>
           
-          <div className="space-y-24 max-w-xl mx-auto font-light leading-relaxed text-lg">
-            <div className="text-white/70 space-y-6">
+          <div className="space-y-12 max-w-xl mx-auto font-light leading-snug text-lg">
+            <div className="text-white/70 space-y-3">
               <p>Pasás muchas horas detrás de pantallas.</p>
               <p>Tu atención se fragmenta a lo largo del día.</p>
               <p>Te cuesta sostener el foco, estar presente y sentir claridad.</p>
             </div>
 
-            <div className="py-12 border-y border-white/5 relative">
+            <div className="py-8 border-y border-white/5 relative">
               <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-12 bg-[var(--color-sand)]/30 rounded-full"></div>
               <p className="text-2xl md:text-3xl font-serif text-white leading-snug">
                 No necesariamente te falta disciplina.<br/> 
@@ -101,7 +101,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="text-white/70 pb-12">
+            <div className="text-white/70 pb-6">
               <p>
                 Y cuando la mente vive procesando estímulos todo el tiempo,<br className="hidden md:block"/>
                 hasta lo simple empieza a sentirse pesado.
@@ -237,7 +237,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="w-full md:w-5/12 aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl relative">
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
-              <img src="/historia.jpeg" alt="Ramiro - Fundador de TRI-NEO" className="w-full h-full object-cover" />
+              <img src="/imagen historia.jpeg" alt="Ramiro - Fundador de TRI-NEO" className="w-full h-full object-cover" />
             </div>
             <div className="w-full md:w-7/12">
               <h2 className="text-3xl font-serif mb-6 text-[var(--color-sand)]">De la saturación a la claridad</h2>
