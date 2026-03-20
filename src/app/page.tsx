@@ -76,26 +76,37 @@ export default function LandingPage() {
       </section>
 
       {/* 2. El Problema Moderno */}
-      <section className="section-padding bg-[var(--color-smoke)] relative">
+      <section className="section-padding bg-[#01080A]/80 relative overflow-hidden">
         <div className="ambient-glow glow-petroleum w-[600px] h-[600px] top-0 left-[-300px]"></div>
-        <div className="container-narrow text-center reveal">
-          <h2 className="text-3xl md:text-5xl font-serif mb-12 leading-tight">
-            No se trata de falta de capacidad.<br/>
-            <span className="italic text-[var(--color-sand)]">Se trata de exceso de ruido.</span>
-          </h2>
+        <div className="container-narrow reveal">
+          <div className="text-center mb-24">
+            <h2 className="text-3xl md:text-5xl font-serif leading-tight">
+              No se trata de falta de capacidad.<br/>
+              <span className="italic text-[var(--color-sand)]">Se trata de exceso de ruido.</span>
+            </h2>
+          </div>
           
-          <div className="glass-panel p-8 md:p-12 text-left md:text-center text-lg text-white/70 space-y-6 max-w-xl mx-auto font-light leading-relaxed">
-            <p>Pasás muchas horas detrás de pantallas.</p>
-            <p>Tu atención se fragmenta a lo largo del día.</p>
-            <p>Te cuesta sostener el foco, estar presente y sentir claridad.</p>
-            <p className="font-medium text-white pt-4">
-              No necesariamente te falta disciplina.<br/> 
-              Muchas veces, lo que sobra es saturación mental.
-            </p>
-            <p className="pt-2">
-              Y cuando la mente vive procesando estímulos todo el tiempo,<br/>
-              hasta lo simple empieza a sentirse pesado.
-            </p>
+          <div className="space-y-24 max-w-xl mx-auto font-light leading-relaxed text-lg">
+            <div className="text-white/70 space-y-6">
+              <p>Pasás muchas horas detrás de pantallas.</p>
+              <p>Tu atención se fragmenta a lo largo del día.</p>
+              <p>Te cuesta sostener el foco, estar presente y sentir claridad.</p>
+            </div>
+
+            <div className="py-12 border-y border-white/5 relative">
+              <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-12 bg-[var(--color-sand)]/30 rounded-full"></div>
+              <p className="text-2xl md:text-3xl font-serif text-white leading-snug">
+                No necesariamente te falta disciplina.<br/> 
+                <span className="text-[var(--color-sand)] italic">Muchas veces, lo que sobra es saturación mental.</span>
+              </p>
+            </div>
+
+            <div className="text-white/70 pb-12">
+              <p>
+                Y cuando la mente vive procesando estímulos todo el tiempo,<br className="hidden md:block"/>
+                hasta lo simple empieza a sentirse pesado.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -128,35 +139,35 @@ export default function LandingPage() {
       </section>
 
       {/* 4. Método en 3 fases */}
-      <section className="section-padding bg-[var(--color-smoke)] relative">
+      <section className="section-padding bg-[#01080A] relative border-t border-white/5">
         <div className="ambient-glow glow-sand w-[500px] h-[500px] left-1/2 -translate-x-1/2 top-0"></div>
         <div className="container-wide">
-          <div className="text-center mb-16 reveal">
-            <h2 className="text-3xl md:text-4xl font-serif">El método en 3 fases</h2>
-            <p className="text-white/60 mt-4">Un proceso progresivo para recuperar el control de tu atención.</p>
+          <div className="text-center mb-24 reveal">
+            <h2 className="text-4xl md:text-5xl font-serif text-[var(--color-sand)]">El método en 3 fases</h2>
+            <p className="text-white/50 mt-4 text-lg font-light">Un proceso progresivo para recuperar el control de tu atención.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="glass-panel p-10 reveal delay-100">
-              <span className="method-number">1</span>
-              <h3 className="text-xl font-bold mb-4 text-[var(--color-sand)]">Calmar el sistema</h3>
-              <p className="text-white/70 font-light">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="reveal delay-100 p-10 md:p-14 rounded-[2.5rem] bg-[#03151A] border border-white/5 shadow-2xl">
+              <span className="text-7xl font-serif italic text-[var(--color-sand)]/20 mb-8 block">1</span>
+              <h3 className="text-2xl font-bold mb-6 text-white tracking-tight">Calmar el sistema</h3>
+              <p className="text-white/60 font-light text-lg leading-relaxed">
                 El primer paso no es hacer más, es frenar. Prácticas diseñadas para apagar la alerta constante de tu sistema nervioso, bajar el ruido inicial y darle espacio a tu mente para respirar.
               </p>
             </div>
             
-            <div className="glass-panel p-10 reveal delay-200">
-              <span className="method-number">2</span>
-              <h3 className="text-xl font-bold mb-4 text-[var(--color-sand)]">Reconfigurar la atención</h3>
-              <p className="text-white/70 font-light">
+            <div className="reveal delay-200 p-10 md:p-14 rounded-[2.5rem] bg-[#04242B] border border-white/5 shadow-2xl">
+              <span className="text-7xl font-serif italic text-[var(--color-sand)]/20 mb-8 block">2</span>
+              <h3 className="text-2xl font-bold mb-6 text-white tracking-tight">Reconfigurar la atención</h3>
+              <p className="text-white/60 font-light text-lg leading-relaxed">
                 Una vez que el agua se calma, podés ver el fondo. Aquí aprendés a salir del piloto automático, volver al cuerpo y recuperar la musculatura de tu atención para sostener el foco.
               </p>
             </div>
 
-            <div className="glass-panel p-10 reveal delay-300">
-              <span className="method-number">3</span>
-              <h3 className="text-xl font-bold mb-4 text-[var(--color-sand)]">Expandir presencia</h3>
-              <p className="text-white/70 font-light">
+            <div className="reveal delay-300 p-10 md:p-14 rounded-[2.5rem] bg-[#222222] border border-white/5 shadow-2xl">
+              <span className="text-7xl font-serif italic text-[var(--color-sand)]/20 mb-8 block">3</span>
+              <h3 className="text-2xl font-bold mb-6 text-white tracking-tight">Expandir presencia</h3>
+              <p className="text-white/60 font-light text-lg leading-relaxed">
                 Desde una mente menos saturada, todo cambia. En esta fase final abrimos espacio para que surjan la claridad, la intuición y la creatividad de forma natural y fluida.
               </p>
             </div>
