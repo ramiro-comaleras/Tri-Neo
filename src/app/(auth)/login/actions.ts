@@ -47,7 +47,7 @@ export async function signUpWithPassword(formData: FormData) {
     })
 
     if (error) {
-        return redirect('/login?type=register&message=No se pudo crear la cuenta.')
+        return redirect(`/login?type=register&message=${encodeURIComponent(error.message)}`)
     }
 
     return redirect('/home')
