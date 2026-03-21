@@ -104,7 +104,7 @@ export default async function HomePage() {
     return (
         <MeshBackground className="p-6 min-h-[100dvh] pt-16 sm:pt-24 pb-24">
             <div className="max-w-md mx-auto z-10 relative">
-                <header className="mb-10 animate-slide-up">
+                <header className="mb-10 animate-slide-up text-center">
                     <h1 className="font-headings text-2xl sm:text-3xl text-white font-medium mb-2 text-balance">
                         Hoy es un buen momento para volver al presente.
                     </h1>
