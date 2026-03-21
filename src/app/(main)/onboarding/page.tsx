@@ -8,29 +8,29 @@ import { saveOnboarding } from './actions'
 
 const STEPS = [
     {
-        title: '¿Cuántas horas pasás frente a pantallas?',
+        title: '¿Cuántas horas promedio pasas frente a pantallas al día?',
         key: 'screen_hours',
         options: ['3–5 horas', '6–8 horas', '9–12 horas', '12+ horas']
     },
     {
-        title: '¿Cuál es tu tipo de trabajo principal?',
+        title: '¿Qué aspecto de tu rutina sientes que más drena tu energía mental?',
         key: 'work_type',
-        options: ['Desarrollo / Tech', 'Creativo digital', 'Marketing digital', 'Emprendimiento online', 'Trabajo remoto general']
+        options: ['Múltiples tareas a la vez', 'Presión y toma de decisiones', 'Exceso de información y pantallas', 'Falta de verdaderas pausas']
     },
     {
         title: 'Principal señal de saturación',
         key: 'saturation_signs',
-        options: ['Ruido mental', 'Dificultad para desconectar', 'Multitarea agotadora', 'Insomnio digital', 'Mente acelerada']
+        options: ['Ruido mental constante', 'Dificultad para desconectar al terminar', 'Mente muy acelerada', 'Insomnio por pensar demasiado']
     },
     {
-        title: '¿En qué momento te sentís peor?',
+        title: '¿En qué momento del día te sientes más abrumado/a?',
         key: 'critical_moment',
-        options: ['Antes de trabajar', 'Durante trabajo intenso', 'Después de trabajar', 'Antes de dormir']
+        options: ['Antes de empezar el día', 'Durante el pico de actividad', 'Al terminar la jornada', 'Antes de intentar dormir']
     },
     {
-        title: '¿Qué buscás con este sistema?',
+        title: '¿Qué buscas lograr principalmente con este sistema?',
         key: 'intention',
-        options: ['Más claridad', 'Más foco profundo', 'Apagar mi mente a la noche', 'Sentirme mentalmente liviano']
+        options: ['Recuperar mi claridad', 'Mejorar mi capacidad de enfoque', 'Aprender a "apagar" mi mente', 'Sentirme mentalmente más liviano/a']
     }
 ]
 

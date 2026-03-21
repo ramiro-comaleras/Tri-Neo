@@ -44,14 +44,11 @@ export async function signUpWithPassword(formData: FormData) {
     const { error } = await supabase.auth.signUp({
         email,
         password,
-        options: {
-            emailRedirectTo: `${siteUrl}/auth/confirm`,
-        }
     })
 
     if (error) {
         return redirect('/login?type=register&message=No se pudo crear la cuenta.')
     }
 
-    return redirect('/login?message=Revisa tu correo para verificar tu cuenta e iniciar sesión.')
+    return redirect('/home')
 }
