@@ -46,7 +46,18 @@ export async function signUpWithPassword(formData: FormData) {
         password,
     })
 
+    // If account already exists, try to log them in directly with those credentials
     if (signUpError) {
+        const isAlreadyRegistered = signUpError.message.toLowerCase().includes('already registered') || signUpError.message.toLowerCase().includes('already exists')
+        if (isAlreadyRegistered) {
+            const { error: signInError } = await supabase.auth.signInWithPassword({ email, password })
+            if (!signInError) {
+                // Account existed and password is correct — send them home
+                return redirect('/home')
+            }
+            // Password doesn't match the existing account
+            return redirect('/login?message=Este correo ya tiene una cuenta. Ingresá con tu contraseña.')
+        }
         return redirect(`/login?type=register&message=${encodeURIComponent(signUpError.message)}`)
     }
 
