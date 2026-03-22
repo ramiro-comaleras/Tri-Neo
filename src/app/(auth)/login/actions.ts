@@ -55,8 +55,8 @@ export async function signUpWithPassword(formData: FormData) {
                 // Account existed and password is correct — send them home
                 return redirect('/home')
             }
-            // Password doesn't match the existing account
-            return redirect('/login?message=Este correo ya tiene una cuenta. Ingresá con tu contraseña.')
+            // Password doesn't match the existing account — send to recovery
+            return redirect(`/forgot-password?email=${encodeURIComponent(email)}&message=${encodeURIComponent('Tu cuenta ya existe. Recuperá tu contraseña para ingresar.')}`)
         }
         return redirect(`/login?type=register&message=${encodeURIComponent(signUpError.message)}`)
     }

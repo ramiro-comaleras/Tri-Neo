@@ -11,6 +11,7 @@ import { Suspense } from 'react'
 function ForgotPasswordForm() {
   const searchParams = useSearchParams()
   const message = searchParams.get('message')
+  const initialEmail = searchParams.get('email') || ''
 
   return (
     <MeshBackground className="items-center justify-center p-6">
@@ -31,6 +32,7 @@ function ForgotPasswordForm() {
                 name="email"
                 type="email"
                 placeholder="tu@email.com"
+                defaultValue={initialEmail}
                 required
                 className="input-glass"
               />
