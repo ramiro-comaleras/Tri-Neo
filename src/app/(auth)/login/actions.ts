@@ -41,14 +41,25 @@ export async function signUpWithPassword(formData: FormData) {
     const supabase = await createClient()
     const siteUrl = getSiteUrl()
 
-    const { error } = await supabase.auth.signUp({
+    const { error: signUpError } = await supabase.auth.signUp({
         email,
         password,
     })
 
-    if (error) {
-        return redirect(`/login?type=register&message=${encodeURIComponent(error.message)}`)
+    if (signUpError) {
+        return redirect(`/login?type=register&message=${encodeURIComponent(signUpError.message)}`)
     }
 
-    return redirect('/home')
+    // Force sign in to guarantee cookies are set before redirecting to protected area
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+    })
+
+    if (signInError) {
+        return redirect('/login?message=Cuenta creada correctamente. Por favor inicia sesión.')
+    }
+
+    // New users MUST complete onboarding first
+    return redirect('/onboarding')
 }
