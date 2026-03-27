@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Play, Volume2, ChevronDown, Check, Book, Instagram } from 'lucide-react'
 import { track } from '@vercel/analytics'
+import { MetaPixel } from '@/features/marketing/components/MetaPixel'
 import './landing.css'
 
 function useScrollReveal() {
@@ -38,6 +39,7 @@ export default function LandingPage() {
 
   return (
     <main className="landing-body overflow-x-hidden">
+      <MetaPixel />
       
       {/* 1. Hero Premium */}
       <section className="hero-wrapper">
