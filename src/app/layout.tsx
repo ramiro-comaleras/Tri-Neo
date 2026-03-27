@@ -4,6 +4,7 @@ import { siteConfig } from '@/config/siteConfig'
 import './globals.css'
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { MetaPixel } from '@/features/marketing/components/MetaPixel'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const robotoSlab = Roboto_Slab({ subsets: ['latin'], variable: '--font-roboto-slab' })
@@ -48,6 +49,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${inter.variable} ${robotoSlab.variable} ${montserrat.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <MetaPixel />
+      </head>
       <body className="font-sans bg-background text-foreground antialiased min-h-screen overscroll-none">
         {children}
         <Analytics />

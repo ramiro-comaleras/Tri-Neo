@@ -1,13 +1,16 @@
 'use client'
 
-import Script from 'next/script'
+import { usePathname } from 'next/navigation'
 
 export function MetaPixel() {
+  const pathname = usePathname()
+
+  // Solo se carga en la landing page principal (/)
+  if (pathname !== '/') return null
+
   return (
     <>
-      <Script
-        id="fb-pixel"
-        strategy="afterInteractive"
+      <script
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -35,3 +38,4 @@ export function MetaPixel() {
     </>
   )
 }
+
