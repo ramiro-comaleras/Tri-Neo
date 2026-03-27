@@ -23,6 +23,7 @@ export function MetaPixel() {
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '943352633898457');
             fbq('track', 'PageView');
+            fbq('track', 'ViewContent');
           `,
         }}
       />
@@ -32,6 +33,13 @@ export function MetaPixel() {
           width="1"
           style={{ display: 'none' }}
           src="https://www.facebook.com/tr?id=943352633898457&ev=PageView&noscript=1"
+          alt=""
+        />
+        <img
+          height="1"
+          width="1"
+          style={{ display: 'none' }}
+          src="https://www.facebook.com/tr?id=943352633898457&ev=ViewContent&noscript=1"
           alt=""
         />
       </noscript>
