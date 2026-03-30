@@ -141,8 +141,8 @@ export default function LandingPage() {
       </section>
 
       {/* Frase de respaldo científico/filosófico */}
-      <div className="py-6 relative z-10 text-center">
-        <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.3em] font-light italic">
+      <div className="py-2 relative z-10 text-center px-4">
+        <p className="text-white/40 text-[9px] md:text-xs uppercase tracking-[0.3em] font-light italic leading-loose">
           Basado en neurociencia, atención y prácticas contemplativas.
         </p>
       </div>
@@ -182,8 +182,11 @@ export default function LandingPage() {
 
       {/* 4. PROBLEMA & SOLUCIÓN */}
       <section className="py-20 md:py-28 bg-transparent relative z-10 border-y border-white/5">
-        <div className="container-narrow reveal text-center">
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4">
+        <div className="container-narrow reveal text-center px-4">
+          <p className="text-[var(--color-sand)] font-serif text-lg md:text-xl italic mb-12 opacity-80 max-w-2xl mx-auto leading-relaxed">
+            &quot;Nuestra mente no evolucionó para esta cantidad de estímulos.&quot;
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             
             {/* El Problema */}
             <div className="p-10 rounded-[2rem] bg-gradient-to-br from-red-950/20 to-black/40 border border-red-500/10 shadow-2xl backdrop-blur-sm">
