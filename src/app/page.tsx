@@ -72,13 +72,17 @@ export default function LandingPage() {
               className="btn-cta-hero w-full text-center text-lg py-4"
               onClick={() => track('Hero - Empezar Ahora')}
             >
-              Empezar ahora
+              Acceder ahora
             </a>
+            <div className="text-white/60 text-xs text-center flex flex-col items-center space-y-1 mb-2">
+              <span className="flex items-center gap-1.5"><Check size={12} className="text-emerald-400"/>Acceso inmediato desde tu celular.</span>
+              <span className="flex items-center gap-1.5"><Check size={12} className="text-emerald-400"/>Sin suscripción. Pago único.</span>
+            </div>
             <a 
               href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20la%20experiencia%20de%20prueba%20de%20TRI-NEO." 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-white/40 hover:text-white/80 text-sm font-light transition-colors mt-2 underline underline-offset-4 decoration-white/20"
+              className="text-white/40 hover:text-[var(--color-sand)] text-sm font-light transition-colors mt-2 underline underline-offset-4 decoration-white/20"
               onClick={() => track('Hero - Experiencia Prueba')}
             >
               Acceder a una experiencia de prueba
@@ -139,7 +143,8 @@ export default function LandingPage() {
       {/* 3. CÓMO FUNCIONA */}
       <section className="py-20 relative z-10">
         <div className="container-narrow reveal text-center">
-          <h2 className="text-3xl md:text-4xl font-serif mb-16 text-white">¿Cómo se usa?</h2>
+          <h2 className="text-3xl md:text-4xl font-serif mb-4 text-white">¿Cómo se usa?</h2>
+          <p className="text-[var(--color-sand)] uppercase tracking-widest text-sm font-bold mb-16">No necesitás experiencia previa.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto px-4 relative">
             <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-[var(--color-sand)]/0 via-[var(--color-sand)]/30 to-[var(--color-sand)]/0"></div>
@@ -272,21 +277,33 @@ export default function LandingPage() {
             <div className="text-[10px] font-bold tracking-widest uppercase text-white/50 mb-4 bg-white/5 inline-block px-4 py-1 rounded-full">Acceso Inmediato y Total</div>
             <div className="text-5xl md:text-6xl font-serif font-light mb-8 text-[var(--color-sand)] drop-shadow-md">$19.000 ARG</div>
             
-            <ul className="text-sm text-white/60 mb-10 space-y-3 font-light text-left max-w-[280px] mx-auto">
+            <ul className="text-sm text-white/60 mb-8 space-y-3 font-light text-left max-w-[280px] mx-auto">
               <li className="flex items-center gap-2"><Check size={14} className="text-[var(--color-sand)]"/> Pago único.</li>
               <li className="flex items-center gap-2"><Check size={14} className="text-[var(--color-sand)]"/> Acceso de por vida.</li>
               <li className="flex items-center gap-2"><Check size={14} className="text-[var(--color-sand)]"/> App + Audios + Ebook + Bonus.</li>
             </ul>
+
+            <div className="bg-emerald-900/20 border border-emerald-500/20 rounded-2xl p-4 mb-6 text-sm text-white/80 text-left">
+              <p className="font-semibold text-emerald-400 mb-1 flex items-center gap-2"><Check size={16}/> Garantía de 7 días</p>
+              <p className="font-light text-emerald-100/70 text-xs">Tenés 7 días para probarlo. Si no te sirve, te devolvemos el dinero.</p>
+            </div>
+            
+            <p className="text-xs text-[var(--color-sand)] uppercase tracking-wider mb-6 font-semibold animate-pulse">Acceso disponible hoy. El valor puede cambiar en cualquier momento.</p>
             
             <a 
               href="https://wa.me/5493433031111?text=Hola,%20quiero%20comenzar%20el%20reto%20TRI-NEO..." 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn-primary w-full block mb-8 py-5 text-lg shadow-[0_0_30px_rgba(230,223,211,0.15)] bg-white text-black hover:bg-[var(--color-sand)] border-none"
+              className="btn-primary w-full block mb-4 py-5 text-lg shadow-[0_0_30px_rgba(230,223,211,0.15)] bg-white text-black hover:bg-[var(--color-sand)] border-none"
               onClick={() => track('Oferta - Comenzar Ahora')}
             >
-              Empezar ahora
+              Acceder ahora
             </a>
+
+            <div className="text-white/60 text-xs text-center flex flex-col items-center space-y-1 mb-8">
+              <span className="flex items-center gap-1.5"><Check size={10} className="text-[var(--color-sand)]"/>Acceso inmediato desde tu celular.</span>
+              <span className="flex items-center gap-1.5"><Check size={10} className="text-[var(--color-sand)]"/>Sin suscripción. Pago único.</span>
+            </div>
 
             <div className="flex flex-col items-center gap-3 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/50">Pagos seguros vía</span>
@@ -296,10 +313,6 @@ export default function LandingPage() {
                 className="h-8 w-auto object-contain"
               />
             </div>
-            
-            <Link href="/login" className="text-sm text-white/40 hover:text-white transition-colors block mt-10 border-t border-white/10 pt-8 uppercase tracking-wider font-semibold">
-              Ya tengo una cuenta. Iniciar sesión.
-            </Link>
           </div>
 
           <div className="max-w-[440px] mx-auto text-center mt-6 mb-8 p-8 rounded-[2rem] bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shadow-lg">
