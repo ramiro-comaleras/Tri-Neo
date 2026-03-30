@@ -169,12 +169,12 @@ export default function LandingPage() {
       </section>
 
       {/* 4. PROBLEMA & SOLUCIÓN */}
-      <section className="py-20 md:py-28 bg-[#01080A]/80 backdrop-blur-md relative z-10 border-y border-white/5">
+      <section className="py-20 md:py-28 bg-transparent relative z-10 border-y border-white/5">
         <div className="container-narrow reveal text-center">
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4">
             
             {/* El Problema */}
-            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-red-950/20 to-black border border-red-500/10 shadow-2xl">
+            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-red-950/20 to-black/40 border border-red-500/10 shadow-2xl backdrop-blur-sm">
               <h3 className="text-sm uppercase tracking-widest text-red-500/50 mb-8 font-bold">El problema</h3>
               <ul className="space-y-5 text-white/70 text-lg font-light text-left pl-5 border-l-2 border-red-500/20">
                 <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> Mente saturada.</li>
@@ -184,7 +184,7 @@ export default function LandingPage() {
             </div>
 
             {/* La Solución */}
-            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-[#0a1e20] to-black border border-emerald-500/10 shadow-2xl">
+            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-[#0a1e20] to-black/40 border border-emerald-500/10 shadow-2xl backdrop-blur-sm">
               <h3 className="text-sm uppercase tracking-widest text-[var(--color-sand)]/70 mb-8 font-bold">El resultado</h3>
               <ul className="space-y-5 text-white/90 text-lg font-light text-left pl-5 border-l-2 border-[var(--color-sand)]/40">
                 <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Menos ruido mental.</li>
@@ -236,7 +236,7 @@ export default function LandingPage() {
       </section>
 
       {/* 6. BONUS */}
-      <section className="py-20 relative z-10 bg-gradient-to-b from-transparent to-[#050505]">
+      <section className="py-20 relative z-10 bg-transparent">
         <div className="container-narrow reveal text-center px-4">
           <div className="glass-panel p-10 md:p-16 border border-[var(--color-sand)]/20 shadow-[0_0_50px_rgba(230,223,211,0.05)] relative overflow-hidden max-w-4xl mx-auto rounded-[3rem]">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-sand)]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
@@ -265,7 +265,7 @@ export default function LandingPage() {
       </section>
 
       {/* 7. PRECIO Y OFERTA */}
-      <section id="oferta" className="py-20 text-white text-center relative z-10 bg-[#000]">
+      <section id="oferta" className="py-20 text-white text-center relative z-10 bg-transparent">
         <div className="container-narrow reveal px-4">
           
           <div className="p-10 md:p-14 max-w-[440px] mx-auto mb-10 border border-white/10 rounded-[3rem] bg-white/5 backdrop-blur-md shadow-2xl">
@@ -320,7 +320,7 @@ export default function LandingPage() {
       </section>
 
       {/* 8. FAQ */}
-      <section className="py-20 bg-[#020202] relative z-10 border-t border-white/5">
+      <section className="py-20 bg-transparent relative z-10 border-t border-white/5">
         <div className="container-narrow reveal px-4">
           <h2 className="text-3xl font-serif text-center mb-12 text-[var(--color-sand)]">Preguntas Frecuentes</h2>
           
@@ -349,7 +349,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-[#020202] text-center relative z-10 pb-8">
+      <footer className="py-12 bg-transparent text-center relative z-10 pb-8">
         <div className="container-narrow">
           <img src="/logo_final.png" alt="TRI-NEO" className="w-12 h-12 mx-auto mb-6 opacity-30 grayscale" />
           <div className="flex justify-center gap-6 mb-8">
