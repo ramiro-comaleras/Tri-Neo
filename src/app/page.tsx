@@ -203,6 +203,49 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* 4.5 TESTIMONIOS */}
+      <section className="py-24 relative z-10 bg-transparent">
+        <div className="container-narrow reveal text-center">
+          <h2 className="text-3xl md:text-5xl font-serif mb-16 text-white text-balance tracking-wide">
+            Lo que experimentan<br/>quienes lo cruzan
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto px-4 text-left">
+            {/* Testimonio 1 */}
+            <div className="p-8 md:p-10 rounded-[2rem] bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shadow-2xl backdrop-blur-sm flex flex-col justify-between">
+              <p className="text-white/80 text-lg md:text-xl font-serif italic font-light leading-relaxed mb-8">
+                &quot;Antes de TRI-NEO me levantaba y ya agarraba el celular por inercia. Vivía acelerada. Con la Fase 1 sentí por primera vez en meses que mi cuerpo bajaba un cambio. Ahora uso el audio cada mañana antes de arrancar.&quot;
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 shrink-0 border border-white/20">
+                  <img src="/avatar1.png" alt="Lucía Rodríguez" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.parentElement!.innerHTML = '<span class=\'flex items-center justify-center w-full h-full text-[var(--color-sand)] font-serif font-semibold\'>LR</span>'; }} />
+                </div>
+                <div>
+                  <h4 className="text-white font-medium text-base tracking-wide">Lucía Rodríguez</h4>
+                  <p className="text-white/40 text-sm font-light">Completó el proceso de 21 días</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonio 2 */}
+            <div className="p-8 md:p-10 rounded-[2rem] bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shadow-2xl backdrop-blur-sm flex flex-col justify-between">
+              <p className="text-white/80 text-lg md:text-xl font-serif italic font-light leading-relaxed mb-8">
+                &quot;El Ebook me cambió la forma de ver mi propia distracción. Entender que es saturación y no falta de ganas me quitó un peso enorme. El entrenamiento de atención en la Fase 2 es clave para mi trabajo.&quot;
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 shrink-0 border border-white/20">
+                  <img src="/avatar2.png" alt="Javier M." className="w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.parentElement!.innerHTML = '<span class=\'flex items-center justify-center w-full h-full text-[var(--color-sand)] font-serif font-semibold\'>JM</span>'; }} />
+                </div>
+                <div>
+                  <h4 className="text-white font-medium text-base tracking-wide">Javier M.</h4>
+                  <p className="text-white/40 text-sm font-light">Emprendedor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 5. HISTORIA */}
       <section className="py-24 relative z-10">
         <div className="container-narrow reveal px-4">
