@@ -316,7 +316,7 @@ export default function LandingPage() {
           </div>
 
           <div className="max-w-[440px] mx-auto text-center mt-6 mb-8 p-8 rounded-[2rem] bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shadow-lg">
-            <h4 className="text-white/90 font-medium mb-3 text-lg">Fragmento de 90 segundos</h4>
+            <h4 className="text-white/90 font-medium mb-3 text-lg">Fragmento de 3 minutos</h4>
             <p className="text-sm text-white/50 mb-6 italic leading-relaxed">Esto es solo una muestra del proceso completo.</p>
             <a 
               href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20el%20fragmento%20de%20prueba%20de%20TRI-NEO."
