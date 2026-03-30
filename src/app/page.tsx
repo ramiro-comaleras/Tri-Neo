@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Play, Volume2, ChevronDown, Check, Book, Instagram } from 'lucide-react'
+import { Play, Volume2, ChevronDown, Check, Book, Instagram, Smartphone } from 'lucide-react'
 import { track } from '@vercel/analytics'
+import { MeshBackground } from '@/shared/components/mesh-background'
 import './landing.css'
 
 function useScrollReveal() {
@@ -29,301 +30,203 @@ export default function LandingPage() {
 
   const faqs = [
     { q: '¿Necesito experiencia previa?', a: 'No. El neuroentrenamiento está diseñado para guiarte desde cero. Solo necesitas el compromiso de escuchar el audio diario.' },
-    { q: '¿Cuánto tiempo lleva por día?', a: 'Las prácticas toman entre 10 y 15 minutos diarios. Están pensadas para encajar en una vida ocupada, no para sumar más carga a tu rutina.' },
-    { q: '¿Cómo accedo al material?', a: 'Al unirte, creas tu usuario y contraseña. Con eso ingresas directamente a nuestra plataforma web app desde tu celular o computadora.' },
-    { q: '¿La app ya está disponible?', a: 'Sí. Desarrollamos una web app dedicada (PWA) para que puedas escuchar los audios, leer el libro y seguir tu proceso sin distracciones.' },
+    { q: '¿Cuánto tiempo lleva por día?', a: 'Las prácticas toman entre 5 y 10 minutos diarios. Están pensadas para encajar en una vida ocupada.' },
+    { q: '¿Cómo accedo al material?', a: 'Al unirte, creas tu usuario y contraseña. Con eso ingresas directamente a nuestra plataforma web app desde tu celular.' },
+    { q: '¿La app ya está disponible?', a: 'Sí. Desarrollamos una web app dedicada (PWA) para que puedas escuchar los audios, leer el libro y seguir tu proceso.' },
     { q: '¿Es un pago mensual?', a: 'No. Es un pago único que te da acceso de por vida a la plataforma, al método de 21 días, a la app y a sus futuras actualizaciones.' },
-    { q: '¿Voy a poder hacerlo a mi ritmo?', a: 'Totalmente. Aunque el reto propuesto es de 21 días continuos, el acceso de por vida te permite pausar o retomar cuando lo sientas necesario.' }
+    { q: '¿Voy a poder hacerlo a mi ritmo?', a: 'Totalmente. Aunque el reto propuesto es de 21 días continuos, el acceso de por vida te permite pausar o retomar.' }
   ]
 
   return (
-    <main className="landing-body overflow-x-hidden">
+    <MeshBackground className="landing-body overflow-x-hidden">
       
-      {/* 1. Hero Premium */}
-      <section className="hero-wrapper">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="hero-video-bg"
-          poster="/fondo hero.jpeg"
-        >
-        </video>
-        <div className="hero-overlay"></div>
-        
-        <div className="hero-content container-narrow animate-fade-up">
-          <p className="text-[var(--color-sand)] tracking-[0.3em] uppercase text-[10px] font-semibold mb-6">Método TRI-NEO</p>
-          <h1 className="text-[2.6rem] sm:text-4xl md:text-6xl font-serif text-white leading-[1.1] mb-8 drop-shadow-lg">
+      {/* 1. HERO */}
+      <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 flex items-center justify-center min-h-[90vh]">
+        <div className="container-narrow reveal text-center flex flex-col items-center">
+          <p className="text-[var(--color-sand)] tracking-[0.2em] md:tracking-[0.3em] uppercase text-xs font-semibold mb-6">Método TRI-NEO</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] mb-6 drop-shadow-lg text-balance">
             Cuando la mente se calma,<br className="hidden md:block" /> la vida se ordena.
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-12 font-light text-balance px-4 drop-shadow-md">
-            21 días para reducir el ruido mental, recuperar claridad y volver a enfocarte en lo que realmente importa.
+          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-4 font-light text-balance px-4">
+            Una app simple para calmar tu mente en 5–10 minutos al día.
+          </p>
+          <p className="text-lg md:text-xl text-white/70 max-w-xl mx-auto mb-12 font-light text-balance px-4">
+            21 días para reducir el ruido mental y recuperar claridad.
           </p>
           
-          <div className="grid grid-cols-4 gap-2 sm:gap-4 text-[10px] sm:text-xs md:text-sm text-white/60 mb-14 w-full max-w-lg mx-auto px-2">
-            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">App dedicada</span></div>
-            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">3 Audios</span></div>
-            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">Ebook</span></div>
-            <div className="flex flex-col items-center gap-1.5"><Check size={16} className="text-[var(--color-sand)]"/> <span className="whitespace-nowrap">Acceso de por vida</span></div>
+          <div className="w-full max-w-[280px] mx-auto aspect-[9/19] rounded-[2.5rem] overflow-hidden shadow-[0_0_60px_rgba(255,255,255,0.1)] ring-1 ring-white/20 mb-12 relative bg-[#0a1025]">
+             <img 
+               src="/interfaz app-Cover.jpg" 
+               alt="Interfaz de la app TRI-NEO" 
+               className="w-full h-full object-cover"
+               onError={(e) => {
+                 e.currentTarget.src = '/app-mockup.png'
+               }}
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col items-center gap-4 w-full max-w-sm mx-auto px-4 relative z-20">
             <a 
               href="#oferta" 
-              className="btn-cta-hero w-full sm:w-auto text-center"
+              className="btn-cta-hero w-full text-center text-lg py-4"
               onClick={() => track('Hero - Empezar Ahora')}
             >
               Empezar ahora
             </a>
             <a 
-              href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20el%20audio%20gratuito%20de%20TRI-NEO." 
+              href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20la%20experiencia%20de%20prueba%20de%20TRI-NEO." 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn-secondary-hero w-full sm:w-auto text-center"
-              onClick={() => track('Hero - Probar Audio Gratuito')}
+              className="text-white/40 hover:text-white/80 text-sm font-light transition-colors mt-2 underline underline-offset-4 decoration-white/20"
+              onClick={() => track('Hero - Experiencia Prueba')}
             >
-              Probar audio gratuito
+              Acceder a una experiencia de prueba
             </a>
           </div>
         </div>
       </section>
 
-      {/* 2. El Problema Moderno */}
-      <section className="section-padding bg-[#01080A]/80 relative overflow-hidden">
-        <div className="ambient-glow glow-petroleum w-[600px] h-[600px] top-0 left-[-300px]"></div>
-        <div className="container-narrow reveal">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-serif leading-tight">
-              No se trata de falta de capacidad.<br/>
-              <span className="italic text-[var(--color-sand)]">Se trata de exceso de ruido.</span>
-            </h2>
-          </div>
-          
-          <div className="space-y-12 max-w-xl mx-auto font-light leading-snug text-lg">
-            <div className="text-white/70 space-y-3">
-              <p>Pasás muchas horas detrás de pantallas.</p>
-              <p>Tu atención se fragmenta a lo largo del día.</p>
-              <p>Te cuesta sostener el foco, estar presente y sentir claridad.</p>
-            </div>
-
-            <div className="py-8 border-y border-white/5 relative">
-              <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-12 bg-[var(--color-sand)]/30 rounded-full"></div>
-              <p className="text-2xl md:text-3xl font-serif text-white leading-snug">
-                No necesariamente te falta disciplina.<br/> 
-                <span className="text-[var(--color-sand)] italic">Muchas veces, lo que sobra es saturación mental.</span>
-              </p>
-            </div>
-
-            <div className="text-white/70 pb-6">
-              <p>
-                Y cuando la mente vive procesando estímulos todo el tiempo,<br className="hidden md:block"/>
-                hasta lo simple empieza a sentirse pesado.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2.5 Lead Magnet (Audio Gratuito) */}
-      <section className="section-padding relative">
+      {/* 2. ¿QUÉ INCLUYE? */}
+      <section className="py-16 relative border-t border-white/5 bg-black/20 backdrop-blur-sm z-10">
         <div className="container-narrow reveal text-center">
-          <div className="glass-panel p-10 md:p-14 border border-white/10 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-sand)]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            
-            <h2 className="text-3xl md:text-4xl font-serif text-white leading-tight mb-6 relative z-10">
-              ¿Todavía no estás listo para<br className="hidden md:block"/> empezar el proceso completo?
-            </h2>
-            
-            <p className="text-lg text-white/70 font-light max-w-2xl mx-auto mb-10 relative z-10">
-              Prueba primero una experiencia breve de TRI-NEO. Recibe gratis un audio guiado de 6 minutos para bajar revoluciones, volver a la respiración y sentir una primera experiencia real de calma y claridad.
-            </p>
-            
-            <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-12 text-sm text-white/80 relative z-10">
-              <div className="flex items-center gap-2">
-                <div className="bg-white/10 p-1.5 rounded-full"><Volume2 size={14} className="text-[var(--color-sand)]" /></div>
-                <span>Audio guiado de práctica</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="bg-white/10 p-1.5 rounded-full"><Book size={14} className="text-[var(--color-sand)]" /></div>
-                <span>PDF de acompañamiento</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="bg-white/10 p-1.5 rounded-full"><Check size={14} className="text-[var(--color-sand)]" /></div>
-                <span>Acceso por WhatsApp</span>
-              </div>
-            </div>
-            
-            <div className="relative z-10 max-w-sm mx-auto">
-              <a 
-                href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20el%20audio%20gratuito%20de%20TRI-NEO."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center bg-white text-[var(--color-petroleum)] font-medium py-4 px-8 rounded-full shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.25)] hover:scale-[1.02] transition-all duration-300"
-                onClick={() => track('Lead Magnet - Quiero recibirlo gratis')}
-              >
-                Quiero recibirlo gratis
-              </a>
-              <p className="text-xs text-white/40 mt-4 italic font-light">
-                Ideal si sientes saturación mental, exceso de estímulos o dificultad para bajar un cambio.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Qué es TRI-NEO */}
-      <section className="section-padding relative">
-        <div className="ambient-glow glow-petroleum w-[800px] h-[800px] right-[-400px] bottom-0"></div>
-        <div className="container-narrow text-center reveal">
-          <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-white/40 mb-4">La Solución</h2>
-          <h3 className="text-3xl md:text-4xl font-serif mb-8 text-[var(--color-sand)]">¿Qué es TRI-NEO?</h3>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto font-light leading-relaxed mb-16">
-            TRI-NEO es un neuroentrenamiento práctico de 21 días. No vas a encontrar teorías eternas ni filosofía compleja. Es un proceso simple, claro y progresivo diseñado específicamente para la mente moderna sobreestimulada.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-serif mb-12 text-[var(--color-sand)]">¿Qué incluye?</h2>
           
-          <div className="aspect-[9/17] w-full max-w-xs mx-auto rounded-3xl overflow-hidden relative shadow-2xl flex items-center justify-center p-2 bg-gradient-to-tr from-white/5 to-white/10 ring-1 ring-white/10">
-             <video 
-               autoPlay 
-               loop 
-               muted 
-               playsInline 
-               className="w-full h-full object-cover rounded-2xl"
-               style={{ objectPosition: 'center bottom' }}
-               poster="/interfaz app/interfaz app-Cover.jpg"
-             >
-               <source src="/interfaz app/interfaz-app.mp4" type="video/mp4" />
-               <source src="/interfaz app/interfaz app.mov" type="video/quicktime" />
-             </video>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Método en 3 fases */}
-      <section className="section-padding bg-[#01080A] relative border-t border-white/5">
-        <div className="ambient-glow glow-sand w-[500px] h-[500px] left-1/2 -translate-x-1/2 top-0"></div>
-        <div className="container-wide">
-          <div className="text-center mb-24 reveal">
-            <h2 className="text-4xl md:text-5xl font-serif text-[var(--color-sand)]">El método en 3 fases</h2>
-            <p className="text-white/50 mt-4 text-lg font-light">Un proceso progresivo para recuperar el control de tu atención.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="reveal delay-100 p-10 md:p-14 rounded-[2.5rem] bg-[#03151A] border border-white/5 shadow-2xl">
-              <span className="text-7xl font-serif italic text-[var(--color-sand)]/20 mb-8 block">1</span>
-              <h3 className="text-2xl font-bold mb-6 text-white tracking-tight">Calmar el sistema</h3>
-              <p className="text-white/60 font-light text-lg leading-relaxed">
-                El primer paso no es hacer más, es frenar. Prácticas diseñadas para apagar la alerta constante de tu sistema nervioso, bajar el ruido inicial y darle espacio a tu mente para respirar.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto text-left px-4">
+            <div className="flex items-start gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="bg-[var(--color-sand)]/20 p-3 rounded-xl"><Smartphone className="text-[var(--color-sand)]" size={24}/></div>
+              <div>
+                <h3 className="text-white font-medium text-lg">App simple en tu celular</h3>
+                <p className="text-white/50 text-sm mt-1">Plataforma dedicada sin distracciones.</p>
+              </div>
             </div>
             
-            <div className="reveal delay-200 p-10 md:p-14 rounded-[2.5rem] bg-[#04242B] border border-white/5 shadow-2xl">
-              <span className="text-7xl font-serif italic text-[var(--color-sand)]/20 mb-8 block">2</span>
-              <h3 className="text-2xl font-bold mb-6 text-white tracking-tight">Reconfigurar la atención</h3>
-              <p className="text-white/60 font-light text-lg leading-relaxed">
-                Una vez que el agua se calma, podés ver el fondo. Aquí aprendés a salir del piloto automático, volver al cuerpo y recuperar la musculatura de tu atención para sostener el foco.
-              </p>
+            <div className="flex items-start gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="bg-[var(--color-sand)]/20 p-3 rounded-xl"><Volume2 className="text-[var(--color-sand)]" size={24}/></div>
+              <div>
+                <h3 className="text-white font-medium text-lg">Audios guiados diarios</h3>
+                <p className="text-white/50 text-sm mt-1">Prácticas de 5 a 15 minutos exactos.</p>
+              </div>
             </div>
 
-            <div className="reveal delay-300 p-10 md:p-14 rounded-[2.5rem] bg-[#222222] border border-white/5 shadow-2xl">
-              <span className="text-7xl font-serif italic text-[var(--color-sand)]/20 mb-8 block">3</span>
-              <h3 className="text-2xl font-bold mb-6 text-white tracking-tight">Expandir presencia</h3>
-              <p className="text-white/60 font-light text-lg leading-relaxed">
-                Desde una mente menos saturada, todo cambia. En esta fase final abrimos espacio para que surjan la claridad, la intuición y la creatividad de forma natural y fluida.
-              </p>
+            <div className="flex items-start gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="bg-[var(--color-sand)]/20 p-3 rounded-xl"><Play className="text-[var(--color-sand)]" size={24}/></div>
+              <div>
+                <h3 className="text-white font-medium text-lg">Proceso de 21 días</h3>
+                <p className="text-white/50 text-sm mt-1">Neuroentrenamiento en 3 fases progresivas.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors md:col-span-1 lg:col-span-1 border-[var(--color-sand)]/20 shadow-[0_0_30px_rgba(230,223,211,0.05)]">
+              <div className="bg-[var(--color-sand)]/20 p-3 rounded-xl"><Book className="text-[var(--color-sand)]" size={24}/></div>
+              <div>
+                <h3 className="text-[var(--color-sand)] font-medium text-lg">Libro Digital</h3>
+                <p className="text-white/50 text-sm mt-1">Neurociencias y Sabiduría Ancestral.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors md:col-span-2 lg:col-span-2">
+              <div className="bg-[var(--color-sand)]/20 p-3 rounded-xl"><Check className="text-[var(--color-sand)]" size={24}/></div>
+              <div>
+                <h3 className="text-white font-medium text-lg text-balance">Acceso de por vida a la plataforma</h3>
+                <p className="text-white/50 text-sm mt-1">Pago único. Sin suscripciones.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. Qué incluye + 6. Beneficios */}
-      <section className="section-padding relative border-t border-white/5">
-        <div className="container-wide grid md:grid-cols-2 gap-16 items-center">
+      {/* 3. CÓMO FUNCIONA */}
+      <section className="py-20 relative z-10">
+        <div className="container-narrow reveal text-center">
+          <h2 className="text-3xl md:text-4xl font-serif mb-16 text-white">¿Cómo se usa?</h2>
           
-          <div className="reveal">
-            <h2 className="text-3xl font-serif mb-10 text-[var(--color-sand)]">Tu ecosistema de práctica</h2>
-            <ul className="space-y-8 text-left">
-              <li className="flex items-start gap-4">
-                <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Play size={16}/></div>
-                <div>
-                  <h4 className="font-bold text-lg leading-tight mb-1 text-white">App web dedicada</h4>
-                  <p className="text-white/60 font-light">Una plataforma simple, clara y sin distracciones para hacer el proceso a tu ritmo.</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Volume2 size={16}/></div>
-                <div>
-                  <h4 className="font-bold text-lg leading-tight mb-1 text-white">3 audios guiados</h4>
-                  <p className="text-white/60 font-light">Diseñados neuroacústicamente para cada una de las 3 fases.</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Book size={16}/></div>
-                <div>
-                  <h4 className="font-bold text-lg leading-tight mb-1 text-white">Ebook del método</h4>
-                  <p className="text-white/60 font-light">La base teórica, práctica y filosófica de TRI-NEO, explicada de forma clara y aplicable.</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <div className="mt-1 bg-[var(--color-sand)] text-[var(--color-petroleum)] p-2 rounded-full"><Check size={16}/></div>
-                <div>
-                  <h4 className="font-bold text-lg leading-tight mb-1 text-white">Acceso de por vida</h4>
-                  <p className="text-white/60 font-light">
-                    Pago único. Sin suscripciones.<br/>
-                    El proceso queda disponible para vos siempre.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto px-4 relative">
+            <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-[var(--color-sand)]/0 via-[var(--color-sand)]/30 to-[var(--color-sand)]/0"></div>
+            
+            <div className="flex flex-col items-center relative z-10">
+              <div className="w-24 h-24 rounded-full bg-[#041E26] border border-white/10 flex items-center justify-center mb-6 shadow-xl text-3xl font-serif text-[var(--color-sand)]">1</div>
+              <h3 className="text-xl font-medium text-white mb-2">Abrís la app</h3>
+            </div>
+            
+            <div className="flex flex-col items-center relative z-10">
+              <div className="w-24 h-24 rounded-full bg-[#041E26] border border-white/10 flex items-center justify-center mb-6 shadow-xl text-3xl font-serif text-[var(--color-sand)]">2</div>
+              <h3 className="text-xl font-medium text-white mb-2">Elegís el audio del día</h3>
+            </div>
 
-          <div className="glass-panel p-10 md:p-16 reveal delay-100">
-            <h3 className="text-2xl font-serif mb-8 text-white">Lo que empieza a cambiar</h3>
-            <ul className="space-y-4 font-light text-white/80">
-              <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[var(--color-sand)]"></div> Menos ruido mental constante.</li>
-              <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[var(--color-sand)]"></div> Más claridad para tomar decisiones.</li>
-              <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[var(--color-sand)]"></div> Capacidad de sostener foco en tu trabajo.</li>
-              <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[var(--color-sand)]"></div> Sensación real de estar presente en tu vida.</li>
-              <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[var(--color-sand)]"></div> Retorno natural de tu creatividad e intuición.</li>
-            </ul>
+            <div className="flex flex-col items-center relative z-10">
+              <div className="w-24 h-24 rounded-full bg-[#041E26] border border-white/10 flex items-center justify-center mb-6 shadow-xl text-3xl font-serif text-[var(--color-sand)]">3</div>
+              <h3 className="text-xl font-medium text-white mb-2">Lo escuchás</h3>
+              <p className="text-white/50 text-sm">(5–10 min)</p>
+            </div>
           </div>
-
+          
+          <div className="mt-16 text-center max-w-sm mx-auto p-6 bg-white/5 rounded-3xl border border-white/10 shadow-2xl">
+            <p className="text-2xl font-serif text-[var(--color-sand)] mb-3 italic font-light">Listo.</p>
+            <p className="text-white/60 text-sm">La app registrará tus prácticas diarias y seguimiento sin esfuerzo.</p>
+          </div>
         </div>
       </section>
 
-      {/* 7. Historia del fundador */}
-      <section className="section-padding bg-[var(--color-smoke)] relative">
-        <div className="ambient-glow glow-petroleum w-[600px] h-[600px] top-1/2 -translate-y-1/2 left-[-100px]"></div>
-        <div className="container-narrow reveal">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="w-full md:w-5/12 aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+      {/* 4. PROBLEMA & SOLUCIÓN */}
+      <section className="py-20 md:py-28 bg-[#01080A]/80 backdrop-blur-md relative z-10 border-y border-white/5">
+        <div className="container-narrow reveal text-center">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4">
+            
+            {/* El Problema */}
+            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-red-950/20 to-black border border-red-500/10 shadow-2xl">
+              <h3 className="text-sm uppercase tracking-widest text-red-500/50 mb-8 font-bold">El problema</h3>
+              <ul className="space-y-5 text-white/70 text-lg font-light text-left pl-5 border-l-2 border-red-500/20">
+                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> Mente saturada.</li>
+                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> No podés concentrarte.</li>
+                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> Ruido mental constante.</li>
+              </ul>
+            </div>
+
+            {/* La Solución */}
+            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-[#0a1e20] to-black border border-emerald-500/10 shadow-2xl">
+              <h3 className="text-sm uppercase tracking-widest text-[var(--color-sand)]/70 mb-8 font-bold">El resultado</h3>
+              <ul className="space-y-5 text-white/90 text-lg font-light text-left pl-5 border-l-2 border-[var(--color-sand)]/40">
+                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Menos ruido mental.</li>
+                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Más claridad.</li>
+                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Mejor foco.</li>
+                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Más calma.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 5. HISTORIA */}
+      <section className="py-24 relative z-10">
+        <div className="container-narrow reveal px-4">
+          <div className="flex flex-col md:flex-row gap-12 items-center max-w-5xl mx-auto">
+            <div className="w-full md:w-5/12 aspect-[3/4] rounded-[2.5rem] overflow-hidden ring-1 ring-white/10 shadow-2xl relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
               <img src="/imagen historia.jpeg" alt="Ramiro - Fundador de TRI-NEO" className="w-full h-full object-cover" />
             </div>
             <div className="w-full md:w-7/12">
-              <h2 className="text-3xl font-serif mb-6 text-[var(--color-sand)]">De la saturación a la claridad</h2>
-              <div className="text-white/70 space-y-5 font-light leading-relaxed">
-                <p>Durante un tiempo cumplí varias metas que pensaba que me iban a hacer sentir pleno. Había comprado mi casa, mi auto, vivía viajando y, desde afuera, parecía que todo estaba bastante bien.</p>
-                <p className="font-medium text-white">Pero adentro seguía habiendo ruido.</p>
-                <p>Ahí entendí algo que me cambió la mirada: cumplí cosas que pensé que me iban a llenar, pero la plenitud no apareció porque el desorden estaba adentro.</p>
-                <p>Desde esa búsqueda empecé a profundizar más: viajé por América, compartí tiempo con comunidades dentro del Amazonas y participé en retiros en las montañas, explorando prácticas de silencio y meditación.</p>
-                <p className="font-medium text-[var(--color-sand)]">De ese recorrido nació TRI-NEO.</p>
-                <p>Hoy, esa búsqueda se convirtió en un neuroentrenamiento de 21 días en 3 fases para reducir el ruido mental, recuperar claridad y volver a enfocarte en lo que realmente importa. </p>
-                <div className="pt-6 border-t border-white/10 mt-6 flex items-center justify-between">
+              <h2 className="text-3xl lg:text-4xl font-serif mb-8 text-[var(--color-sand)]">De la saturación a la claridad</h2>
+              <div className="text-white/70 space-y-6 font-light leading-relaxed text-lg">
+                <p>Durante un tiempo cumplí varias metas externas, pero adentro <strong className="font-medium text-white">seguía habiendo ruido</strong>.</p>
+                <p>Viajé, compartí tiempo con comunidades en el Amazonas y participé en retiros explorando el silencio. <span className="font-medium text-[var(--color-sand)]">De ese recorrido nació TRI-NEO.</span></p>
+                <p>Hoy, esa búsqueda es un neuroentrenamiento simple de 21 días para reducir el ruido mental y volver a enfocarte en lo que realmente importa.</p>
+                
+                <div className="pt-6 border-t border-white/10 mt-8 flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-white">Ramiro</p>
-                    <p className="text-sm uppercase tracking-widest text-white/40">Fundador</p>
+                    <p className="font-medium text-white text-lg">Ramiro</p>
+                    <p className="text-xs uppercase tracking-widest text-white/40 mt-1">Fundador</p>
                   </div>
                   <a 
                     href="https://www.instagram.com/ramacomaleras/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-white/30 hover:text-[var(--color-sand)] transition-all duration-300"
+                    className="flex items-center gap-2 text-white/40 hover:text-[var(--color-sand)] transition-all duration-300 bg-white/5 px-4 py-2 rounded-full border border-white/10"
                     onClick={() => track('Click Instagram - Historia')}
                   >
-                    <Instagram size={18} />
-                    <span className="text-sm font-light">@ramacomaleras</span>
+                    <Instagram size={16} />
+                    <span className="text-sm font-medium">@ramacomaleras</span>
                   </a>
                 </div>
               </div>
@@ -332,71 +235,60 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 8. Testimonios */}
-      <section className="section-padding relative">
-        <div className="ambient-glow glow-sand w-[600px] h-[600px] right-[-200px] top-0"></div>
-        <div className="container-narrow">
-          <h2 className="text-3xl font-serif text-center mb-16 reveal">Lo que experimentan quienes lo cruzan</h2>
-          
-          <div className="space-y-8">
-            <div className="glass-panel p-8 md:p-12 reveal">
-              <p className="italic text-lg text-white/90 font-serif mb-6 leading-relaxed">
-                "Antes de TRI-NEO me levantaba y ya agarraba el celular por inercia. Vivía acelerada. Con la Fase 1 sentí por primera vez en meses que mi cuerpo bajaba un cambio. Ahora uso el audio cada mañana antes de arrancar."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/20 shadow-lg">
-                  <img src="/avatar1.png" alt="Lucía Rodríguez" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <p className="font-bold text-sm text-[var(--color-sand)]">Lucía Rodríguez</p>
-                  <p className="text-xs text-white/40">Completó el proceso de 21 días</p>
-                </div>
-              </div>
+      {/* 6. BONUS */}
+      <section className="py-20 relative z-10 bg-gradient-to-b from-transparent to-[#050505]">
+        <div className="container-narrow reveal text-center px-4">
+          <div className="glass-panel p-10 md:p-16 border border-[var(--color-sand)]/20 shadow-[0_0_50px_rgba(230,223,211,0.05)] relative overflow-hidden max-w-4xl mx-auto rounded-[3rem]">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-sand)]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            
+            <div className="inline-block px-4 py-1.5 bg-[var(--color-sand)]/20 text-[var(--color-sand)] text-[10px] sm:text-xs font-bold tracking-widest uppercase rounded-full mb-8 border border-[var(--color-sand)]/30">
+              Bonus Exclusivo
             </div>
-
-            <div className="glass-panel p-8 md:p-12 reveal delay-100">
-              <p className="italic text-lg text-white/90 font-serif mb-6 leading-relaxed">
-                "El Ebook me cambió la forma de ver mi propia distracción. Entender que es saturación y no falta de ganas me quitó un peso enorme. El entrenamiento de atención en la Fase 2 es clave para mi trabajo."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/20 shadow-lg">
-                  <img src="/avatar2.png" alt="Javier M." className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <p className="font-bold text-sm text-[var(--color-sand)]">Javier M.</p>
-                  <p className="text-xs text-white/40">Emprendedor</p>
-                </div>
-              </div>
+            
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white mb-6">Biblioteca TRI-NEO</h2>
+            
+            <p className="text-xl sm:text-2xl text-[var(--color-sand)] font-light max-w-2xl mx-auto mb-8 text-balance">
+              +100 libros sobre mente, meditación y consciencia.
+            </p>
+            
+            <p className="text-white/70 font-light max-w-xl mx-auto mb-10 text-lg leading-relaxed text-balance">
+              Solo por hoy, junto con TRI-NEO, recibís acceso a una biblioteca digital 
+              con un recurso extra invaluable para profundizar el proceso.
+            </p>
+            
+            <div className="inline-block p-6 rounded-3xl bg-black/60 border border-white/10 shadow-2xl">
+              <p className="text-sm text-white/40 line-through mb-1 uppercase tracking-wider">Valor real: +$200 USD</p>
+              <p className="text-xl font-medium text-emerald-400">Incluido hoy sin costo adicional</p>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 9. Oferta Final */}
-      <section id="oferta" className="section-padding bg-[var(--color-smoke)] text-white text-center border-t border-white/5 relative">
-        <div className="ambient-glow glow-petroleum w-full h-[500px] bottom-0 left-0"></div>
-        <div className="container-narrow reveal">
-          <h2 className="text-4xl md:text-5xl font-serif mb-6 text-[var(--color-sand)]">Recuperá tu claridad mental</h2>
-          <p className="text-lg text-white/70 font-light mb-12 max-w-xl mx-auto">
-            Únete a la plataforma hoy y obtén acceso de por vida al neuroentrenamiento completo de 21 días.
-          </p>
+      {/* 7. PRECIO Y OFERTA */}
+      <section id="oferta" className="py-20 text-white text-center relative z-10 bg-[#000]">
+        <div className="container-narrow reveal px-4">
           
-          <div className="glass-panel p-10 max-w-md mx-auto mb-10 border border-[var(--color-sand)]/20 shadow-[0_0_50px_rgba(230,223,211,0.05)]">
-            <div className="text-xs font-bold tracking-widest uppercase text-[var(--color-sand)] mb-2">Acceso Total</div>
-            <div className="text-5xl font-serif font-light mb-8">$19.000 ARG</div>
+          <div className="p-10 md:p-14 max-w-[440px] mx-auto mb-10 border border-white/10 rounded-[3rem] bg-white/5 backdrop-blur-md shadow-2xl">
+            <div className="text-[10px] font-bold tracking-widest uppercase text-white/50 mb-4 bg-white/5 inline-block px-4 py-1 rounded-full">Acceso Inmediato y Total</div>
+            <div className="text-5xl md:text-6xl font-serif font-light mb-8 text-[var(--color-sand)] drop-shadow-md">$19.000 ARG</div>
+            
+            <ul className="text-sm text-white/60 mb-10 space-y-3 font-light text-left max-w-[280px] mx-auto">
+              <li className="flex items-center gap-2"><Check size={14} className="text-[var(--color-sand)]"/> Pago único.</li>
+              <li className="flex items-center gap-2"><Check size={14} className="text-[var(--color-sand)]"/> Acceso de por vida.</li>
+              <li className="flex items-center gap-2"><Check size={14} className="text-[var(--color-sand)]"/> App + Audios + Ebook + Bonus.</li>
+            </ul>
             
             <a 
               href="https://wa.me/5493433031111?text=Hola,%20quiero%20comenzar%20el%20reto%20TRI-NEO..." 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn-primary w-full block mb-4"
+              className="btn-primary w-full block mb-8 py-5 text-lg shadow-[0_0_30px_rgba(230,223,211,0.15)] bg-white text-black hover:bg-[var(--color-sand)] border-none"
               onClick={() => track('Oferta - Comenzar Ahora')}
             >
-              Comenzar ahora
+              Empezar ahora
             </a>
 
-            <div className="flex flex-col items-center gap-2 mt-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
+            <div className="flex flex-col items-center gap-3 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/50">Pagos seguros vía</span>
               <img 
                 src="https://cdn.simpleicons.org/mercadopago/white" 
@@ -405,35 +297,48 @@ export default function LandingPage() {
               />
             </div>
             
-            <Link href="/login" className="text-sm text-white/40 hover:text-white transition-colors block mt-8">
+            <Link href="/login" className="text-sm text-white/40 hover:text-white transition-colors block mt-10 border-t border-white/10 pt-8 uppercase tracking-wider font-semibold">
               Ya tengo una cuenta. Iniciar sesión.
             </Link>
           </div>
 
-          <p className="text-sm text-white/30">* Pago único. Sin suscripciones ocultas.</p>
+          <div className="max-w-[440px] mx-auto text-center mt-6 mb-8 p-8 rounded-[2rem] bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shadow-lg">
+            <h4 className="text-white/90 font-medium mb-3 text-lg">Fragmento de 90 segundos</h4>
+            <p className="text-sm text-white/50 mb-6 italic leading-relaxed">Esto es solo una muestra del proceso completo.</p>
+            <a 
+              href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20el%20fragmento%20de%20prueba%20de%20TRI-NEO."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold uppercase tracking-widest text-[var(--color-sand)] hover:text-white transition-colors border-b border-[var(--color-sand)]/30 pb-1 inline-block"
+              onClick={() => track('Lead Magnet - Experiencia Prueba')}
+            >
+              Solicitar por WhatsApp
+            </a>
+          </div>
+
         </div>
       </section>
 
-      {/* 10. FAQ */}
-      <section className="section-padding relative">
-        <div className="container-narrow reveal">
+      {/* 8. FAQ */}
+      <section className="py-20 bg-[#020202] relative z-10 border-t border-white/5">
+        <div className="container-narrow reveal px-4">
           <h2 className="text-3xl font-serif text-center mb-12 text-[var(--color-sand)]">Preguntas Frecuentes</h2>
           
-          <div className="glass-panel p-8 md:p-12">
+          <div className="p-6 md:p-10 rounded-3xl bg-white/5 border border-white/5">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="faq-item">
+              <div key={idx} className="faq-item border-b border-white/5 last:border-0 last:pb-0">
                 <div 
-                  className="faq-question"
+                  className="faq-question py-5 flex justify-between items-center cursor-pointer hover:text-[var(--color-sand)] transition-colors"
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                 >
-                  <span className="pr-4">{faq.q}</span>
+                  <span className="pr-4 font-medium text-white/90 text-[15px]">{faq.q}</span>
                   <ChevronDown 
                     size={20} 
-                    className={`transition-transform duration-300 ${openFaq === idx ? 'rotate-180' : ''} text-white/40`}
+                    className={`transition-transform duration-300 ${openFaq === idx ? 'rotate-180' : ''} text-white/30 shrink-0`}
                   />
                 </div>
                 {openFaq === idx && (
-                  <div className="faq-answer animate-fade-up">
+                  <div className="faq-answer pb-6 text-white/60 font-light text-sm animate-fade-up leading-relaxed">
                     {faq.a}
                   </div>
                 )}
@@ -443,11 +348,10 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 11. Footer */}
-      <footer className="py-12 bg-[#000] text-center border-t border-white/5 relative z-10">
+      {/* Footer */}
+      <footer className="py-12 bg-[#020202] text-center relative z-10 pb-8">
         <div className="container-narrow">
           <img src="/logo_final.png" alt="TRI-NEO" className="w-12 h-12 mx-auto mb-6 opacity-30 grayscale" />
-          
           <div className="flex justify-center gap-6 mb-8">
             <a 
               href="https://www.instagram.com/ramacomaleras/" 
@@ -459,11 +363,10 @@ export default function LandingPage() {
               <Instagram size={20} />
             </a>
           </div>
-
-          <p className="text-sm text-white/40">© 2026 TRI-NEO. Diseñado para la claridad.</p>
+          <p className="text-sm text-white/30 font-light">© 2026 TRI-NEO. Diseñado para la claridad.</p>
         </div>
       </footer>
 
-    </main>
+    </MeshBackground>
   )
 }
