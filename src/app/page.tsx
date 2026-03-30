@@ -140,6 +140,13 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Frase de respaldo científico/filosófico */}
+      <div className="py-6 relative z-10 text-center">
+        <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.3em] font-light italic">
+          Basado en neurociencia, atención y prácticas contemplativas.
+        </p>
+      </div>
+
       {/* 3. CÓMO FUNCIONA */}
       <section className="py-20 relative z-10">
         <div className="container-narrow reveal text-center">
