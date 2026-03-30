@@ -76,7 +76,7 @@ export default function LandingPage() {
             </a>
             <div className="text-white/60 text-xs text-center flex flex-col items-center space-y-1 mb-2">
               <span className="flex items-center gap-1.5"><Check size={12} className="text-emerald-400"/>Acceso inmediato desde tu celular.</span>
-              <span className="flex items-center gap-1.5"><Check size={12} className="text-emerald-400"/>Sin suscripción. Pago único.</span>
+              <span className="flex items-center gap-1.5"><Check size={12} className="text-emerald-400"/>Sin suscripción.</span>
             </div>
             <a 
               href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20la%20experiencia%20de%20prueba%20de%20TRI-NEO." 
@@ -302,7 +302,7 @@ export default function LandingPage() {
 
             <div className="text-white/60 text-xs text-center flex flex-col items-center space-y-1 mb-8">
               <span className="flex items-center gap-1.5"><Check size={10} className="text-[var(--color-sand)]"/>Acceso inmediato desde tu celular.</span>
-              <span className="flex items-center gap-1.5"><Check size={10} className="text-[var(--color-sand)]"/>Sin suscripción. Pago único.</span>
+              <span className="flex items-center gap-1.5"><Check size={10} className="text-[var(--color-sand)]"/>Sin suscripción.</span>
             </div>
 
             <div className="flex flex-col items-center gap-3 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
