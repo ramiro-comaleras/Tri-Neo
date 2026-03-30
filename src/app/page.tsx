@@ -55,13 +55,13 @@ export default function LandingPage() {
           </p>
           
           <div className="w-full max-w-[280px] mx-auto aspect-[9/19] rounded-[2.5rem] overflow-hidden shadow-[0_0_60px_rgba(255,255,255,0.1)] ring-1 ring-white/20 mb-12 relative bg-[#0a1025]">
-             <img 
-               src="/interfaz app/interfaz app-Cover.jpg" 
-               alt="Interfaz de la app TRI-NEO" 
+             <video 
+               src="/video-hero.mp4" 
+               autoPlay 
+               muted 
+               loop 
+               playsInline
                className="w-full h-full object-cover"
-               onError={(e) => {
-                 e.currentTarget.src = '/interfaz app/interfaz app-Cover.jpg'
-               }}
              />
              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           </div>
