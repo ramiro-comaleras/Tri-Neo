@@ -89,6 +89,39 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* 4. PROBLEMA & SOLUCIÓN */}
+      <section className="py-20 md:py-28 bg-transparent relative z-10 border-b border-white/5">
+        <div className="container-narrow reveal text-center px-4">
+          <p className="text-[var(--color-sand)] font-serif text-lg md:text-xl italic mb-12 opacity-80 max-w-2xl mx-auto leading-relaxed">
+            &quot;Nuestra mente no evolucionó para esta cantidad de estímulos.&quot;
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            
+            {/* El Problema */}
+            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-red-950/20 to-black/40 border border-red-500/10 shadow-2xl backdrop-blur-sm">
+              <h3 className="text-sm uppercase tracking-widest text-red-500/50 mb-8 font-bold">El problema</h3>
+              <ul className="space-y-5 text-white/70 text-lg font-light text-left pl-5 border-l-2 border-red-500/20">
+                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> Mente saturada.</li>
+                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> No podés concentrarte.</li>
+                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> Ruido mental constante.</li>
+              </ul>
+            </div>
+
+            {/* La Solución */}
+            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-[#0a1e20] to-black/40 border border-emerald-500/10 shadow-2xl backdrop-blur-sm">
+              <h3 className="text-sm uppercase tracking-widest text-[var(--color-sand)]/70 mb-8 font-bold">El resultado</h3>
+              <ul className="space-y-5 text-white/90 text-lg font-light text-left pl-5 border-l-2 border-[var(--color-sand)]/40">
+                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Menos ruido mental.</li>
+                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Más claridad.</li>
+                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Mejor foco.</li>
+                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Más calma.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ¿QUÉ ES TRI-NEO? */}
       <section className="py-20 md:py-24 relative z-10 bg-transparent">
         <div className="container-narrow reveal text-center px-4">
@@ -157,39 +190,6 @@ export default function LandingPage() {
         </p>
       </div>
 
-      {/* 4. PROBLEMA & SOLUCIÓN */}
-      <section className="py-20 md:py-28 bg-transparent relative z-10 border-y border-white/5">
-        <div className="container-narrow reveal text-center px-4">
-          <p className="text-[var(--color-sand)] font-serif text-lg md:text-xl italic mb-12 opacity-80 max-w-2xl mx-auto leading-relaxed">
-            &quot;Nuestra mente no evolucionó para esta cantidad de estímulos.&quot;
-          </p>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-            
-            {/* El Problema */}
-            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-red-950/20 to-black/40 border border-red-500/10 shadow-2xl backdrop-blur-sm">
-              <h3 className="text-sm uppercase tracking-widest text-red-500/50 mb-8 font-bold">El problema</h3>
-              <ul className="space-y-5 text-white/70 text-lg font-light text-left pl-5 border-l-2 border-red-500/20">
-                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> Mente saturada.</li>
-                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> No podés concentrarte.</li>
-                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-500/30"></span> Ruido mental constante.</li>
-              </ul>
-            </div>
-
-            {/* La Solución */}
-            <div className="p-10 rounded-[2rem] bg-gradient-to-br from-[#0a1e20] to-black/40 border border-emerald-500/10 shadow-2xl backdrop-blur-sm">
-              <h3 className="text-sm uppercase tracking-widest text-[var(--color-sand)]/70 mb-8 font-bold">El resultado</h3>
-              <ul className="space-y-5 text-white/90 text-lg font-light text-left pl-5 border-l-2 border-[var(--color-sand)]/40">
-                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Menos ruido mental.</li>
-                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Más claridad.</li>
-                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Mejor foco.</li>
-                <li className="flex items-center gap-3"><Check size={16} className="text-[var(--color-sand)]"/> Más calma.</li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* ¿TODAVÍA NO ESTÁS LISTO? - Lead Magnet */}
       <section className="py-20 md:py-24 relative z-10 bg-transparent">
         <div className="container-narrow reveal px-4">
@@ -204,10 +204,6 @@ export default function LandingPage() {
               <div className="flex items-center gap-3 text-white/70">
                 <Volume2 size={18} className="text-white/40 shrink-0"/>
                 <span className="text-sm font-light">Audio guiado de práctica</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/70">
-                <Book size={18} className="text-white/40 shrink-0"/>
-                <span className="text-sm font-light">PDF de acompañamiento</span>
               </div>
               <div className="flex items-center gap-3 text-white/70">
                 <Check size={18} className="text-white/40 shrink-0"/>
@@ -385,19 +381,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="max-w-[440px] mx-auto text-center mt-6 mb-8 p-8 rounded-[2rem] bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shadow-lg">
-            <h4 className="text-white/90 font-medium mb-3 text-lg">Fragmento de 3 minutos</h4>
-            <p className="text-sm text-white/50 mb-6 italic leading-relaxed">Esto es solo una muestra del proceso completo.</p>
-            <a 
-              href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20el%20fragmento%20de%20prueba%20de%20TRI-NEO."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-bold uppercase tracking-widest text-[var(--color-sand)] hover:text-white transition-colors border-b border-[var(--color-sand)]/30 pb-1 inline-block"
-              onClick={() => track('Lead Magnet - Experiencia Prueba')}
-            >
-              Solicitar por WhatsApp
-            </a>
-          </div>
+
 
         </div>
       </section>
