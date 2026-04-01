@@ -52,17 +52,7 @@ export default function LandingPage() {
             21 días para reducir el ruido mental y recuperar claridad.
           </p>
           
-          <div className="w-full max-w-[280px] mx-auto aspect-[9/19] rounded-[2.5rem] overflow-hidden shadow-[0_0_60px_rgba(255,255,255,0.1)] ring-1 ring-white/20 mb-12 relative bg-[#0a1025]">
-             <video 
-               src="/video-hero.mp4" 
-               autoPlay 
-               muted 
-               loop 
-               playsInline
-               className="w-full h-full object-cover"
-             />
-             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          </div>
+
 
           <div className="flex flex-col items-center gap-4 w-full max-w-sm mx-auto px-4 relative z-20">
             <a 
@@ -131,6 +121,18 @@ export default function LandingPage() {
           <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto text-balance">
             TRI-NEO es un neuroentrenamiento práctico de 21 días. No vas a encontrar teorías eternas ni filosofía compleja. Es un proceso simple, claro y progresivo diseñado específicamente para la mente moderna sobreestimulada.
           </p>
+
+          <div className="w-full max-w-[280px] mx-auto aspect-[9/19] rounded-[2.5rem] overflow-hidden shadow-[0_0_60px_rgba(255,255,255,0.1)] ring-1 ring-white/20 mt-16 relative bg-[#0a1025]">
+             <video 
+               src="/video-hero.mp4" 
+               autoPlay 
+               muted 
+               loop 
+               playsInline
+               className="w-full h-full object-cover"
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          </div>
         </div>
       </section>
 
