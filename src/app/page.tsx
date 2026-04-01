@@ -40,21 +40,99 @@ export default function LandingPage() {
   return (
     <MeshBackground className="text-white font-sans overflow-x-hidden">
       
-      {/* 1. HERO */}
-      <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 flex items-center justify-center min-h-[90vh]">
-        <div className="container-narrow reveal text-center flex flex-col items-center">
+      {/* 1. HERO CINEMATOGRÁFICO */}
+      <section className="relative flex items-center justify-center min-h-[100dvh] overflow-hidden">
+        {/* Video de fondo */}
+        <video 
+          ref={(el) => {
+            if (el && !el.dataset.initialized) {
+              el.dataset.initialized = 'true'
+              const videoEl = el
+              
+              // Fase 1: Esperar 2.5s, luego fade out initial content y play video
+              setTimeout(() => {
+                const initialContent = document.getElementById('hero-initial')
+                if (initialContent) {
+                  initialContent.style.opacity = '0'
+                  initialContent.style.transform = 'translateY(-30px)'
+                }
+                videoEl.play().catch(() => {})
+              }, 2500)
+              
+              // Fase 2: Cuando el video termina, mostrar el contenido final
+              videoEl.addEventListener('ended', () => {
+                const finalContent = document.getElementById('hero-final')
+                if (finalContent) {
+                  finalContent.style.opacity = '1'
+                  finalContent.style.transform = 'translateY(0)'
+                }
+                // Cambiar overlay para contraste con fondo claro
+                const overlay = document.getElementById('hero-overlay')
+                if (overlay) {
+                  overlay.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)'
+                }
+              })
+            }
+          }}
+          src="/fondo-hero.mp4" 
+          muted 
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ filter: 'brightness(0.85)' }}
+        />
+        
+        {/* Overlay para contraste de texto */}
+        <div 
+          id="hero-overlay"
+          className="absolute inset-0 z-[1]"
+          style={{ 
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.5) 100%)',
+            transition: 'background 1.5s ease'
+          }}
+        />
+
+        {/* Contenido INICIAL — Logo + frase corta + botones (visible al cargar) */}
+        <div 
+          id="hero-initial"
+          className="relative z-10 text-center flex flex-col items-center justify-center px-6"
+          style={{ transition: 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)' }}
+        >
+          <img src="/logo_final.png" alt="TRI-NEO" className="w-20 h-20 mb-8 drop-shadow-2xl" />
           <p className="text-[var(--color-sand)] tracking-[0.2em] md:tracking-[0.3em] uppercase text-xs font-semibold mb-6">Método TRI-NEO</p>
+          <p className="text-xl md:text-2xl text-white/90 max-w-xl mx-auto mb-12 font-light text-balance leading-relaxed">
+            21 días para reducir el ruido mental y recuperar claridad.
+          </p>
+          <div className="flex flex-col items-center gap-4 w-full max-w-sm mx-auto">
+            <a 
+              href="#oferta" 
+              className="btn-cta-hero w-full text-center text-lg py-4"
+              onClick={() => track('Hero - Empezar Ahora')}
+            >
+              Acceder ahora
+            </a>
+            <a 
+              href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20la%20experiencia%20de%20prueba%20de%20TRI-NEO." 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-trial mt-2"
+              onClick={() => track('Hero - Experiencia Prueba')}
+            >
+              Prueba Gratis
+            </a>
+          </div>
+        </div>
+
+        {/* Contenido FINAL — Frase principal + botones (aparece al terminar el video) */}
+        <div 
+          id="hero-final"
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center"
+          style={{ opacity: 0, transform: 'translateY(40px)', transition: 'all 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)' }}
+        >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] mb-6 drop-shadow-lg text-balance">
             Cuando la mente se calma,<br className="hidden md:block" /> la vida se ordena.
           </h1>
-
-          <p className="text-lg md:text-xl text-white/70 max-w-xl mx-auto mb-12 font-light text-balance px-4">
-            21 días para reducir el ruido mental y recuperar claridad.
-          </p>
-          
-
-
-          <div className="flex flex-col items-center gap-4 w-full max-w-sm mx-auto px-4 relative z-20">
+          <div className="flex flex-col items-center gap-4 w-full max-w-sm mx-auto mt-8">
             <a 
               href="#oferta" 
               className="btn-cta-hero w-full text-center text-lg py-4"
@@ -70,7 +148,7 @@ export default function LandingPage() {
               href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20la%20experiencia%20de%20prueba%20de%20TRI-NEO." 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn-trial mt-4"
+              className="btn-trial"
               onClick={() => track('Hero - Experiencia Prueba')}
             >
               Prueba Gratis
