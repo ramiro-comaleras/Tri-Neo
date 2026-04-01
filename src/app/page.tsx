@@ -55,8 +55,10 @@ export default function LandingPage() {
                 if (initialContent) {
                   initialContent.style.opacity = '0'
                   initialContent.style.transform = 'translateY(-30px)'
+                  
+                  // Iniciar video justo cuando empieza el fade out
+                  videoEl.play().catch(() => {})
                 }
-                videoEl.play().catch(() => {})
               }, 2500)
               
               // Fase 2: Cuando el video termina, mostrar el contenido final
@@ -69,7 +71,7 @@ export default function LandingPage() {
                 // Cambiar overlay para contraste con fondo claro
                 const overlay = document.getElementById('hero-overlay')
                 if (overlay) {
-                  overlay.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)'
+                  overlay.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.6) 100%)'
                 }
               })
             }
@@ -79,7 +81,7 @@ export default function LandingPage() {
           playsInline
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover z-0"
-          style={{ filter: 'brightness(0.85)' }}
+          style={{ filter: 'brightness(0.95)' }}
         />
         
         {/* Overlay para contraste de texto */}
@@ -88,7 +90,7 @@ export default function LandingPage() {
           className="absolute inset-0 z-[1]"
           style={{ 
             background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.5) 100%)',
-            transition: 'background 1.5s ease'
+            transition: 'background 2s ease'
           }}
         />
 
@@ -96,7 +98,7 @@ export default function LandingPage() {
         <div 
           id="hero-initial"
           className="relative z-10 text-center flex flex-col items-center justify-center px-6"
-          style={{ transition: 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)' }}
+          style={{ transition: 'all 1.5s cubic-bezier(0.4, 0, 0.2, 1)' }}
         >
           <img src="/logo_final.png" alt="TRI-NEO" className="w-20 h-20 mb-8 drop-shadow-2xl" />
           <p className="text-[var(--color-sand)] tracking-[0.2em] md:tracking-[0.3em] uppercase text-xs font-semibold mb-6">Método TRI-NEO</p>
@@ -126,8 +128,8 @@ export default function LandingPage() {
         {/* Contenido FINAL — Frase principal + botones (aparece al terminar el video) */}
         <div 
           id="hero-final"
-          className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center"
-          style={{ opacity: 0, transform: 'translateY(40px)', transition: 'all 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)' }}
+          className="absolute inset-0 z-10 flex flex-col items-center justify-start pt-32 md:pt-40 px-6 text-center"
+          style={{ opacity: 0, transform: 'translateY(40px)', transition: 'all 2s cubic-bezier(0.2, 0.8, 0.2, 1)' }}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] mb-6 drop-shadow-lg text-balance">
             Cuando la mente se calma,<br className="hidden md:block" /> la vida se ordena.
