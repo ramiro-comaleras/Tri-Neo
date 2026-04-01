@@ -83,7 +83,7 @@ export default function LandingPage() {
       <section className="py-20 md:py-28 bg-transparent relative z-10 border-b border-white/5">
         <div className="container-narrow reveal text-center px-4">
           <p className="text-[var(--color-sand)] font-serif text-lg md:text-xl italic mb-12 opacity-80 max-w-2xl mx-auto leading-relaxed">
-            &quot;Nuestra mente no evolucionó para esta cantidad de estímulos.&quot;
+            Nuestra mente no evolucionó para esta cantidad de estímulos.
           </p>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             
