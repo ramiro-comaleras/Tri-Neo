@@ -47,9 +47,7 @@ export default function LandingPage() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] mb-6 drop-shadow-lg text-balance">
             Cuando la mente se calma,<br className="hidden md:block" /> la vida se ordena.
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-4 font-light text-balance px-4">
-            Una app simple para calmar tu mente en 5–10 minutos al día.
-          </p>
+
           <p className="text-lg md:text-xl text-white/70 max-w-xl mx-auto mb-12 font-light text-balance px-4">
             21 días para reducir el ruido mental y recuperar claridad.
           </p>
@@ -91,6 +89,18 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ¿QUÉ ES TRI-NEO? */}
+      <section className="py-20 md:py-24 relative z-10 bg-transparent">
+        <div className="container-narrow reveal text-center px-4">
+          <h2 className="text-3xl md:text-5xl font-serif mb-10 text-[var(--color-sand)] text-balance">
+            ¿Qué es TRI-NEO?
+          </h2>
+          <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto text-balance">
+            TRI-NEO es un neuroentrenamiento práctico de 21 días. No vas a encontrar teorías eternas ni filosofía compleja. Es un proceso simple, claro y progresivo diseñado específicamente para la mente moderna sobreestimulada.
+          </p>
+        </div>
+      </section>
+
       {/* 2. ¿QUÉ INCLUYE? */}
       <section className="py-16 relative border-t border-white/5 bg-black/20 backdrop-blur-sm z-10">
         <div className="container-narrow reveal text-center">
@@ -101,7 +111,7 @@ export default function LandingPage() {
               <div className="bg-[var(--color-sand)]/20 p-3 rounded-xl"><Smartphone className="text-[var(--color-sand)]" size={24}/></div>
               <div>
                 <h3 className="text-white font-medium text-lg">App simple en tu celular</h3>
-                <p className="text-white/50 text-sm mt-1">Plataforma dedicada sin distracciones.</p>
+                <p className="text-white/50 text-sm mt-1">La app registrará tus prácticas diarias y compartirá inteligentemente tu claridad mental.</p>
               </div>
             </div>
             
@@ -147,39 +157,6 @@ export default function LandingPage() {
         </p>
       </div>
 
-      {/* 3. CÓMO FUNCIONA */}
-      <section className="py-20 relative z-10">
-        <div className="container-narrow reveal text-center">
-          <h2 className="text-3xl md:text-4xl font-serif mb-4 text-white">¿Cómo se usa?</h2>
-          <p className="text-[var(--color-sand)] uppercase tracking-widest text-sm font-bold mb-16">No necesitás experiencia previa.</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto px-4 relative">
-            <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-[var(--color-sand)]/0 via-[var(--color-sand)]/30 to-[var(--color-sand)]/0"></div>
-            
-            <div className="flex flex-col items-center relative z-10">
-              <div className="w-24 h-24 rounded-full bg-[#041E26] border border-white/10 flex items-center justify-center mb-6 shadow-xl text-3xl font-serif text-[var(--color-sand)]">1</div>
-              <h3 className="text-xl font-medium text-white mb-2">Abrís la app</h3>
-            </div>
-            
-            <div className="flex flex-col items-center relative z-10">
-              <div className="w-24 h-24 rounded-full bg-[#041E26] border border-white/10 flex items-center justify-center mb-6 shadow-xl text-3xl font-serif text-[var(--color-sand)]">2</div>
-              <h3 className="text-xl font-medium text-white mb-2">Elegís el audio del día</h3>
-            </div>
-
-            <div className="flex flex-col items-center relative z-10">
-              <div className="w-24 h-24 rounded-full bg-[#041E26] border border-white/10 flex items-center justify-center mb-6 shadow-xl text-3xl font-serif text-[var(--color-sand)]">3</div>
-              <h3 className="text-xl font-medium text-white mb-2">Lo escuchás</h3>
-              <p className="text-white/50 text-sm">(5–10 min)</p>
-            </div>
-          </div>
-          
-          <div className="mt-16 text-center max-w-sm mx-auto p-6 bg-white/5 rounded-3xl border border-white/10 shadow-2xl">
-            <p className="text-2xl font-serif text-[var(--color-sand)] mb-3 italic font-light">Listo.</p>
-            <p className="text-white/60 text-sm">La app registrará tus prácticas diarias y seguimiento sin esfuerzo.</p>
-          </div>
-        </div>
-      </section>
-
       {/* 4. PROBLEMA & SOLUCIÓN */}
       <section className="py-20 md:py-28 bg-transparent relative z-10 border-y border-white/5">
         <div className="container-narrow reveal text-center px-4">
@@ -209,6 +186,46 @@ export default function LandingPage() {
               </ul>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ¿TODAVÍA NO ESTÁS LISTO? - Lead Magnet */}
+      <section className="py-20 md:py-24 relative z-10 bg-transparent">
+        <div className="container-narrow reveal px-4">
+          <div className="max-w-lg mx-auto p-10 md:p-14 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm shadow-2xl text-center">
+            <h2 className="text-2xl md:text-3xl font-serif text-white mb-8 text-balance leading-snug">
+              ¿Todavía no estás listo para empezar el proceso completo?
+            </h2>
+            <p className="text-white/70 font-light text-base md:text-lg leading-relaxed mb-10 text-balance">
+              Prueba primero una experiencia breve de TRI-NEO. Recibe gratis un audio guiado de 3 minutos para bajar revoluciones, volver a la respiración y sentir una primera experiencia real de calma y claridad.
+            </p>
+            <div className="space-y-4 text-left max-w-xs mx-auto mb-10">
+              <div className="flex items-center gap-3 text-white/70">
+                <Volume2 size={18} className="text-white/40 shrink-0"/>
+                <span className="text-sm font-light">Audio guiado de práctica</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/70">
+                <Book size={18} className="text-white/40 shrink-0"/>
+                <span className="text-sm font-light">PDF de acompañamiento</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/70">
+                <Check size={18} className="text-white/40 shrink-0"/>
+                <span className="text-sm font-light">Acceso por WhatsApp</span>
+              </div>
+            </div>
+            <a 
+              href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20la%20experiencia%20de%20prueba%20de%20TRI-NEO." 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block w-full py-4 rounded-full bg-white text-black font-semibold text-base hover:bg-[var(--color-sand)] transition-colors shadow-lg mb-6"
+              onClick={() => track('Lead Magnet - Quiero Recibirlo Gratis')}
+            >
+              Quiero recibirlo gratis
+            </a>
+            <p className="text-white/30 text-xs italic font-light leading-relaxed">
+              Ideal si sientes saturación mental, exceso de estímulos o dificultad para bajar un cambio.
+            </p>
           </div>
         </div>
       </section>
