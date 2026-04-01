@@ -70,7 +70,7 @@ export default function LandingPage() {
               href="https://wa.me/5493433031111?text=Hola,%20quiero%20recibir%20la%20experiencia%20de%20prueba%20de%20TRI-NEO." 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-[var(--color-sand)] hover:text-white text-sm font-semibold transition-all mt-4 px-6 py-2 rounded-full border border-[var(--color-sand)]/20 hover:border-[var(--color-sand)]/50 bg-[var(--color-sand)]/5 hover:bg-[var(--color-sand)]/10"
+              className="btn-trial mt-4"
               onClick={() => track('Hero - Experiencia Prueba')}
             >
               Acceder a una experiencia de prueba
