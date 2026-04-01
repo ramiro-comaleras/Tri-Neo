@@ -73,7 +73,7 @@ export default function LandingPage() {
               className="btn-trial mt-4"
               onClick={() => track('Hero - Experiencia Prueba')}
             >
-              Acceder a una experiencia de prueba
+              Prueba Gratis
             </a>
           </div>
         </div>
